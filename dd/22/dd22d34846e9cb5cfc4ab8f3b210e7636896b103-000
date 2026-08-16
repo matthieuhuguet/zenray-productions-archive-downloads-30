@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+import sys
+from pathlib import Path
+
+
+def parse_blocks(text):
+    blocks = []
+    current = []
+    for line in text.replace("\r\n", "\n").replace("\r", "\n").split("\n"):
+        if line.strip() == "":
+            if current:
+                blocks.append("\n".join(current))
+                current = []
+        else:
+            current.append(line.rstrip())
+    if current:
+        blocks.append("\n".join(current))
+    return blocks
+
+
+def main():
+    src = Path(sys.argv[1])
+    n = int(sys.argv[2])
+    prefix = Path(sys.argv[3])
+    blocks = parse_blocks(src.read_text(encoding="utf-8"))
+    per = (len(blocks) + n - 1) // n
+    for i in range(n):
+        chunk = blocks[i * per : (i + 1) * per]
+        if not chunk:
+            continue
+        dst = prefix.with_name(f"{prefix.name}.chunk{i + 1}.srt")
+        dst.write_text("\n\n".join(chunk) + "\n", encoding="utf-8")
+        first = chunk[0].split("\n", 1)[0]
+        last = chunk[-1].split("\n", 1)[0]
+        print(f"{dst}: entries {first}-{last} ({len(chunk)})")
+
+
+if __name__ == "__main__":
+    main()
