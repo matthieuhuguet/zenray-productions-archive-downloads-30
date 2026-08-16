@@ -1,0 +1,209 @@
+# 20 Février 2026
+
+### ⚔️ Collection 5 : "Riot Games & Esport" (Épique, Magie, Impact)
+
+1. **Hextech Gold Foil** : Des lignes dorées se dessinent géométriquement avant de se remplir d'énergie bleue néon.
+2. **Screen Slam Shake** : Impact "lourd" au centre de l'écran avec un *camera shake* exponentiel qui s'atténue en 0.5s.
+3. **Energy Particle Trail** : Sillage de particules lumineuses (rubans magiques) qui suivent un mouvement ou révèlent un logo.
+4. **Match-Cut Morph** : Transition entre deux formes similaires (ex: un œil de dragon -> une planète) parfaitement centrées.
+5. **Hexagonal Grid Wipe** : L'écran disparaît via un motif de tuiles hexagonales qui se réduisent en taille une à une.
+6. **Champion Lock-in Flash** : Un flash de lumière volumétrique explose depuis le dos d'un personnage avec des cendres magiques.
+7. **Liquid Invert Ripple** : Une goutte tombe au centre, l'onde de choc inverse les couleurs de la scène sur son passage (effet Luma/Chroma wave).
+8. **Cyber Targeting Brackets** : Crochets de visée UI qui "snappent" sur le visage d'un intervenant avec un micro-zoom mécanique.
+
+### 🎥 Collection 6 : "Cinema & Optique" (Caméra réelle simulée)
+
+1. **Rack Focus (Focus Pull)** : Transition douce où un élément hyper proche devient flou pour révéler l'arrière-plan net (profondeur de champ ultra courte).
+2. **Anamorphic Lens Flare** : Un reflet de lumière bleu/horizontal étiré traverse l'écran lors d'une coupe.
+3. **Film Burn / Light Leak** : Brûlure de pellicule rouge/orange organique (idéal à coder avec des gradients de bruit perlin).
+4. **Time Ramp (SpeedRamping)** : Accélération brutale de la vidéo suivie d'un ralenti extrême sur l'action clé (interpolation optique).
+5. **Z-Axis Fly-Through** : La caméra fonce vers un objet troué (ex: la lettre "O", une serrure) et traverse pour arriver dans la nouvelle scène.
+6. **Vertigo Effect (Dolly Zoom)** : La caméra recule mais zoome optiquement en même temps, déformant la perspective (effet de malaise/révélation).
+7. **Lens Dirt Révélation** : Éblouissement face soleil qui révèle temporairement de la poussière/traces de doigts sur la lentille de la caméra virtuelle.
+8. **Subsurface Light Bleed** : De la lumière filtre *à travers* la typographie (comme si elle était en cire ou en marbre).
+
+### 🧩 Collection 7 : "Glitch Art & Datamoshing"
+
+1. **Datamosh Pixel Drag** : Les pixels de la première vidéo "bavent" et épousent le mouvement de la deuxième vidéo (manipulation des vecteurs de mouvement).
+2. **CRT Scanlines & Curvature** : L'image se bombe comme un vieil écran cathodique, avec séparation RGB sur les bords extérieurs.
+3. **Digital Pixel Sorting** : Les zones sombres de l'image "fondent" vers le bas en cascades de pixels droits.
+4. **Binary Rain Wipe** : Un rideau de code vert (façon Matrix) tombe et révèle la scène derrière.
+5. **Audio-Reactive Distort** : La taille de la vidéo ou de la typographie pulse proportionnellement aux ondes de basse (Kick audio track).
+6. **VCR Play Révélation** : Apparition classique "PLAY ►" typique des caméscopes avec la date clignotante en typo *VCR OSD Mono*.
+7. **Compression Artifact Block** : Transition saccadée par blocs de gros pixels bruts (comme une mauvaise connexion internet).
+8. **Z-Fight Flickering** : Effet de conflit de plans 3D où deux textures se chevauchent et clignotent frénétiquement.
+
+### 🚀 Collection 8 : "Transitions Géométriques & Code-Friendly" (Parfait pour Remotion)
+
+1. **Circular Iris Wipe** : Transition classique en rond centré (façon Looney Tunes ou James Bond) mais avec des bords lissés (feathered).
+2. **Diagonal Slice & Slide** : L'écran est découpé en 5 bandes diagonales qui glissent hors de l'écran avec un délai (*stagger*).
+3. **Luma Fade (Gradient Wipe)** : L'image disparaît en commençant par ses zones les plus sombres pour finir par les zones les plus claires.
+4. **Dot Grid Scale** : Une grille d'immenses ronds parfaits rétrécit progressivement pour devenir l'image complète.
+5. **Text Mask Révélation** : La vidéo joue *à l'intérieur* d'une très grosse typographie "Impact" ou "Monument", qui grossit jusqu'à remplir l'écran.
+6. **Spinning Clock Wipe** : Transition radiale circulaire à 360°, simple, efficace, mathématiquement parfaite.
+7. **Multi-cam Split Screen** : Écran divisé en 4 quadrants symétriques (grille) apparaissant avec un effet de rebond.
+8. **Color Palette Révélation** : Avant l'apparition de l'image, ses 5 couleurs principales apparaissent sous forme de barres solides (pantone), puis se fondent en la scène.
+
+100k, et pour quitter ta chambre pour le Japon ou les îles, tu ne dois pas travailler *plus dur* sur tes modèles 3D. Tu dois faire un **"Shift" radical de positionnement**. Voici le plan de bataille.
+
+Faudrait écrire la vidéo la séquence.
+
+1. Logo Zenray 
+2. Chapitrage (1. Graph Preview. 2. Render)
+3. Render 
+4. Logo Out.
+
+Pas oublier remotion en vrai c’est vraiment puissant.
+
+https://www.youtube.com/watch?v=0jP6snHAXlw
+
+On va commencer par faire les publications.
+
+- Linkedin → Website.
+- Faire la vidéo. motion pour la publication du texturing.
+- Website Is Published.
+    
+    Vasy c’est bon le site est publié !!!
+    
+    Normalement il va push le site j’ai besoin d’un post.
+    C’est surtout pour dire Available en Freelance …
+    
+    *J'ai mis trop longtemps à le publier. Voilà, c'est fait.*
+    
+    ***zenray.vercel.app** mon portfolio de Technical Artist 3D.*
+    
+    *Ce que vous y trouverez :*
+    
+    → Environnements procéduraux Houdini → UE5
+    
+    → Texturing & matériaux, Substance Designer
+    
+    → Articles techniques sur mes workflows ou sur des nouveautés.
+    
+    Je vais faire des vidéos pour améliorer la présentation.
+    
+    *Houdini · Unreal Engine 5 · Substance Designer*
+    
+    Pipelines procéduraux · Outils custom · Environments game-ready
+    
+    *Je publie du contenu quasi quotidiennement — rendus, breakdowns, outils. Pensez Instagram, mais pour les Technical Artists.*
+    
+    *Feedback bienvenu.*
+    
+    *#TechnicalArt #Houdini #UnrealEngine #SubstanceDesigner #GameDev*
+    
+    🟢 Website Live! | **Disponible pour de nouvelles missions Freelance !**
+    
+    J'ai (enfin) mis en ligne mon portfolio de Technical Artist 3D. C’est une V1 qui va évoluer rapidement — j'ajouterai bientôt des vidéos pour mieux présenter mes process — mais l'essentiel est là.
+    
+    🌐 **zenray.vercel.app**
+    
+    Ce que vous pouvez y découvrir :
+    
+    🔹 Environnements procéduraux (Houdini → UE5)
+    
+    🔹 Texturing & Matériaux (Substance Designer)
+    
+    🔹 Articles techniques & workflows
+    
+    💡 *Mon focus : Pipelines procéduraux · Outils custom · Environnements game-ready.*
+    
+    Pour rappel, je publie du contenu ici quasi quotidiennement (rendus, breakdowns, outils)., mais pour les Tech Artists ! 🛠️
+    
+    Vos retours sur le site sont super bienvenus. N'hésitez pas à me contacter en DM pour discuter de vos projets .
+    
+    #TechnicalArt #Houdini #UnrealEngine #SubstanceDesigner #GameDev #Freelance
+    
+
+ZENRAY
+
+Creating Materials Graph
+
+Bon on a plusieurs trucs à publier toujours en pensant l’enrobage en premier. et ensuite le contenu. La forme prévaut sur le fond.
+
+- [x]  Publier Website ça fait trop longtemps tu vas commencer par écrire les articles et ensuite t’occuper de la production. C’est du reverse logic. Faire un breakdown intelligent.
+- [x]  Publier le mcp claude cursor compatible à propos de Substance Designer MCP.
+- [ ]  Publier Matériaux directement sur le site. avec un beaux breakdown. je peux le faire en m’inspirant de l’UI de Ghost …
+- [ ]  Finir à la fin le matériaux.
+- [ ]  Corriger les finitions d’autres assets de portfolio, assumer que c’est une copie.
+- [ ]  Si possible faire des vidéos mais se concentrer.
+
+Une fois mon pc récupéré je vais directement au coworking.
+
+Je vais commencer par me laver. et désormais j’irai chaque jour au cowork.
+
+![image.png](20%20F%C3%A9vrier%202026/image.png)
+
+![image.png](20%20F%C3%A9vrier%202026/image%201.png)
+
+![image.png](20%20F%C3%A9vrier%202026/image%202.png)
+
+- [ ]  Publier go go go.
+
+Matériaux 
+
+Qu’est ce qu’il faut publier ?
+
+énorme feedback
+
+## **Gemini a dit PROSPECTION | PORTFOLIO | NETWORK**
+
+**Ta croyance d'avoir plus de facilité à rester en solo est obsolète et te maintient dans la paralysie. L'isolement stratégique est ton défaut majeur identifié. Pour générer du cash immédiatement sans disperser ton énergie, applique la loi du levier : arrête de perdre du temps sur des micro-assets Substance Designer et vends ton expertise procédurale (Houdini vers UE5) à ceux qui ont un budget. Concentre tes efforts sociaux exclusivement sur LinkedIn (génération de B2B) et ArtStation (preuve par le résultat). Les autres plateformes (TikTok, Instagram) ne feront que diluer ta force de frappe.**
+
+**Plan d'action immédiat pour la semaine :**
+
+- **Cashflow Mercenaire (Prospection) : Envoie 10 messages directs ciblés chaque matin sur LinkedIn à des Lead Tech Artists ou directeurs de studios AA et ArchViz. Propose un appel de 15 minutes ciblé sur l'automatisation de leurs goulots d'étranglement. *Contrainte obligatoire* : Interdiction stricte d'ouvrir Unreal Engine ou Houdini avant que ces 10 messages ne soient envoyés.**
+- **Exposition (Portfolio) : Publie la démonstration technique de ton HDA Pampa Grass ce vendredi. *Contrainte obligatoire* : Le post doit impérativement être rédigé en Anglais, Japonais et Français, et inclure les hashtags #ZenRayStudios et #ZenRayProductions.**
+- **Satiété Sociale (Dating & Network) : Tu n'attireras pas une partenaire d'exception en restant dans ta chambre à Aix-en-Provence. *Contrainte obligatoire* : Effectue tes 50 swipes quotidiens comme une tâche administrative et force-toi à travailler depuis un espace de coworking au moins une fois cette semaine pour confronter ta persona au monde réel.**
+
+**Quel est le nom du premier studio ou Lead Tech Artist que tu vas contacter ce matin sur ton fichier de prospection ?**
+
+Tu as le QI, tu as les compétences techniques (Top 5%), tu as la rage de vaincre.
+
+Arrête de jouer au technicien caché dans sa chambre qui attend d'être découvert.
+
+Mets ton costume de Closer.
+
+Cette semaine :
+
+1. Envoie 10 messages de prospection freelance.
+2. Prépare un outil/asset pour FAB.
+3. Sors boire un café en ville, aborde le monde avec confiance, planifie un date.
+
+En bref on ne doit pas toujours commencer par la production mais plutôt par la publication.
+
+publier puis produire.
+
+Mr Beast commence par l’emballage de sa vidéo la miniature et le cobcept avant de commencer la production en soit il commence par la fin.
+
+amazon : commencer par la publication presse (publication) avant d’avoir fini le projet. c’est plus dur mais le résultat est meilleur. et surtout dans les délais 
+
+dji : ils commencent par un trailer hyper populaire et ensuite si ça marche ils commencent la production.
+
+Après le côté business est super important surtout si tu veux être indépendant cependant j’aimerai me reconcentrer sur le JAPON. a
+
+[https://www.notion.so](https://www.notion.so)
+
+- Enseignement. En mémoire.
+    
+    https://miro.com/app/live-embed/uXjVJjgiL9s=/?embedMode=view_only_without_ui&moveToViewport=-11088%2C-9939%2C2673%2C1318&embedId=465928926186
+    
+    ArtStation Feed.
+    
+    [SportBodyweight](20%20F%C3%A9vrier%202026/SportBodyweight%202fad4ee179c3805e985de1a0ed01a869.md)
+    
+    Working process is about lofi. Accumulation / Exposition / Indépendance
+    Tu retiens ce que tu utilises, pas ce que tu notes ! Donc just in time = noter moins passer à l’action rapidement pour avoir un feedback ! Applique ou oublie. prendre l’habitude de faire du sport le matin ça cale mieux le sommeil… Le repos et voir des oeuvres pousse toujours ton esprit à vouloir push la 3D et te donner de nouvelles idées, le challenge c’est ensuite de les publier pour avoir la reconnaissance dont tu as besoin (social) d’ailleurs tu adores te faire des amis. Et tu veux devenir un des meilleurs concepteurs du siècle.
+    
+    Just In Time ! 2 min rule Lis pour résoudre, pas pour stocker. Pas de problème, pas de lecture. Problème trouvé, Passage à l'action.  Le plus important c’est de se lancer, ensuite ton cerveau est hyper curieux et veux résoudre le puzzle, le challenge que tu lui lances. être la personne que l’on souhaite être / incarne.
+    Je veux juste être quelqu’un de créatif qui dev tous les jours, faire du sport et apprendre le japonais
+    Mon imaginaire déborde il faut le respecter, rêve création.
+    
+    GAMEDEV SPORT JAPON
+    Mon objectif long terme = un des meilleurs concepteur de jeu vidéo du siècle. Via la stack AI / Unreal / Houdini / Substance / Zbrush.
+    Mon objectif santé = Faire du sport minimum 3 fois par semaine exploser tout à la salle de sport : j’adore !
+    Mon objectif voyage / découverte / lifestyle : Partir au Japon explorer ce pays vivre intensément.
+    
+    Le résultat est ta seule preuve
+    
+    Je vais vraiment faire les choses : TU VAS PAS ESSAYER DE FAIRE LES CHOSES TU VAS VRAIMENT FAIRE LES CHOSES
