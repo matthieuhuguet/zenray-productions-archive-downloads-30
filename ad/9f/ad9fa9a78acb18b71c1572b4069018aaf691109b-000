@@ -1,0 +1,25 @@
+# CLAUDE.md
+
+## **CLAUDE.md vs ton dossier Memory**
+
+**CLAUDE.md** est un fichier de configuration que Claude Code lit automatiquement au démarrage d'une session. Il se place à la racine d'un projet (ou dans `~/.claude/`). Son contenu est injecté dans le system prompt, ce qui permet de donner des instructions persistantes : conventions de code, commandes de build, architecture du projet, etc.
+
+**Concrètement, tu en as déjà un** — c'est ton `MEMORY.md` dans `C:\Users\matth\.claude\projects\E--Create-Build\memory\`. Il est chargé dans chaque conversation (tu peux le voir dans le contexte système ci-dessus). Claude Code traite ce fichier exactement comme un CLAUDE.md.
+
+### **Différences clés**
+
+|  | **CLAUDE.md** | **Ton dossier Memory** |
+| --- | --- | --- |
+| **Portée** | Par projet (racine du repo) ou global (`~/.claude/`) | Global, lié à ton working directory |
+| **Chargement** | Automatique au lancement | Automatique (MEMORY.md) + fichiers annexes consultés à la demande |
+| **Usage typique** | Instructions de projet (lint, test, conventions) | Notes persistantes cross-session (configs, leçons apprises) |
+| **Qui l'utilise** | Toute l'équipe (committé dans le repo) | Toi seul (personnel) |
+
+### **Ce qui est pertinent pour toi**
+
+Ton setup actuel avec `MEMORY.md` **fait déjà le travail d'un CLAUDE.md**. La différence principale :
+
+- **CLAUDE.md dans un repo** = instructions partagées avec d'autres devs qui utilisent Claude Code sur le même projet
+- **Ton Memory** = notes personnelles qui persistent entre tes sessions
+
+Si tu travailles seul, ton système Memory est suffisant. Un CLAUDE.md par projet deviendrait utile si tu voulais des instructions différentes par projet (ex: conventions spécifiques à un repo) ou si tu collaborais avec d'autres utilisateurs de Claude Code.
