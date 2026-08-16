@@ -1,0 +1,123 @@
+
+<h2 class="sr-only">Fiche produit Leboncoin — Mac mini M1 8 Go / 256 Go</h2>
+
+<div style="max-width:620px; margin:0 auto; padding:1rem 0;">
+
+  <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); overflow:hidden;">
+
+    <div style="background:var(--color-background-secondary); padding:1.25rem 1.5rem; border-bottom:0.5px solid var(--color-border-tertiary); display:flex; align-items:center; gap:14px;">
+      <div style="width:48px; height:48px; border-radius:var(--border-radius-md); background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); display:flex; align-items:center; justify-content:center;">
+        <i class="ti ti-device-desktop" style="font-size:22px; color:var(--color-text-secondary);" aria-hidden="true"></i>
+      </div>
+      <div>
+        <p style="font-size:17px; font-weight:500; margin:0; color:var(--color-text-primary);">Apple Mac mini M1 — 8 Go / 256 Go</p>
+        <p style="font-size:13px; color:var(--color-text-secondary); margin:4px 0 0;">Ordinateur de bureau · Très bon état</p>
+      </div>
+    </div>
+
+    <div style="padding:1.25rem 1.5rem; border-bottom:0.5px solid var(--color-border-tertiary);">
+      <p style="font-size:24px; font-weight:500; margin:0; color:var(--color-text-primary);">420 €</p>
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:4px 0 0;">Prix ferme · Paiement en main propre ou virement</p>
+    </div>
+
+    <div style="padding:1.25rem 1.5rem; border-bottom:0.5px solid var(--color-border-tertiary);">
+      <p style="font-size:13px; font-weight:500; color:var(--color-text-secondary); margin:0 0 12px; text-transform:uppercase; letter-spacing:0.06em;">Description</p>
+      <p style="font-size:14px; color:var(--color-text-primary); line-height:1.7; margin:0;">
+        Mac mini équipé de la puce <strong style="font-weight:500;">Apple M1</strong> (architecture ARM, 8 cœurs CPU / 8 cœurs GPU). Silencieux, compact, très performant au quotidien pour le bureau, le montage vidéo léger, le développement ou la création graphique. Fonctionne parfaitement. Aucune rayure visible. Vendu sans écran, clavier ni souris.
+      </p>
+    </div>
+
+    <div style="padding:1.25rem 1.5rem; border-bottom:0.5px solid var(--color-border-tertiary);">
+      <p style="font-size:13px; font-weight:500; color:var(--color-text-secondary); margin:0 0 14px; text-transform:uppercase; letter-spacing:0.06em;">Caractéristiques</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-cpu" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Processeur</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">Apple M1 — 8 cœurs</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-box" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Mémoire vive</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">8 Go RAM unifiée</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-database" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Stockage</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">256 Go SSD NVMe</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-plug" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Connectique</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">2× USB-C / 2× USB-A / HDMI / Ethernet</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-device-tv" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Affichage max.</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">6K via Thunderbolt 3</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-brand-apple" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Système</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">macOS (mis à jour)</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-wifi" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Réseau</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">Wi-Fi 6 · Bluetooth 5.0</p>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:flex-start; gap:10px;">
+          <i class="ti ti-bolt" style="font-size:16px; color:var(--color-text-secondary); margin-top:2px;" aria-hidden="true"></i>
+          <div>
+            <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Consommation</p>
+            <p style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin:2px 0 0;">Idle : 6 W · Pleine charge : 39 W</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="padding:1.25rem 1.5rem; border-bottom:0.5px solid var(--color-border-tertiary);">
+      <p style="font-size:13px; font-weight:500; color:var(--color-text-secondary); margin:0 0 12px; text-transform:uppercase; letter-spacing:0.06em;">Inclus dans la vente</p>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="font-size:13px; padding:4px 12px; border-radius:999px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-primary);">Câble d'alimentation</span>
+        <span style="font-size:13px; padding:4px 12px; border-radius:999px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-primary);">Boîte d'origine</span>
+        <span style="font-size:13px; padding:4px 12px; border-radius:999px; background:var(--color-background-secondary); border:0.5px solid var(--color-border-tertiary); color:var(--color-text-primary);">Facture disponible</span>
+      </div>
+    </div>
+
+    <div style="padding:1.25rem 1.5rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <i class="ti ti-map-pin" style="font-size:16px; color:var(--color-text-secondary);" aria-hidden="true"></i>
+        <span style="font-size:13px; color:var(--color-text-secondary);">Aix-en-Provence (13)</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <i class="ti ti-repeat" style="font-size:16px; color:var(--color-text-secondary);" aria-hidden="true"></i>
+        <span style="font-size:13px; color:var(--color-text-secondary);">Remise en main propre uniquement</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
