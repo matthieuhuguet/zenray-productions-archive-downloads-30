@@ -1,0 +1,106 @@
+---
+name: kanji-stroke-order
+description: Render a stroke-order diagram for any kanji or kana character. Use whenever the user asks to visualize, learn, or reproduce the stroke order of a Japanese character — including phrases like "ordre des traits", "stroke order", "comment écrire", "how to write [kanji]", or when an image of a stroke diagram is shown. Produces a step-by-step SVG panel sequence with directional arrows, sourced from KanjiVG data.
+---
+
+# Kanji Stroke Order Diagram
+
+Fetches open-source KanjiVG data and renders a progressive stroke-by-stroke diagram as an HTML artifact.
+
+## Step 1 — Codepoint
+
+Convert the target character to a zero-padded 5-digit lowercase hex.
+Example: 字 → U+5B57 → `05b57`
+
+```python
+char = "字"
+cp = f"{ord(char):05x}"  # → "05b57"
+```
+
+## Step 2 — Fetch KanjiVG
+
+```
+https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/{cp}.svg
+```
+
+Use bash or Python `urllib`. If 404 → character has no KanjiVG entry; output error and suggest the base form.
+
+Parse strokes with a single regex (no XML parser needed):
+
+```python
+import re, urllib.request
+
+url = f"https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/{cp}.svg"
+svg = urllib.request.urlopen(url).read().decode()
+
+# Strokes in document order = stroke order
+strokes = re.findall(r'<path id="kvg:[^-]+-s\d+"[^>]*d="([^"]+)"', svg)
+# → list of SVG path d-strings, index 0 = stroke 1
+```
+
+## Step 3 — Render HTML artifact
+
+Produce one panel per stroke. Panel i shows:
+- Strokes 1…i−1 in `#c8c8c8` (thin, 2.5px) — already drawn
+- Stroke i in `#111111` (bold, 3.5px) — current stroke
+- A numbered start-dot (filled circle, r=5) at the stroke's first M coordinate
+- A small arrowhead at the stroke's last coordinate, approximating direction from the second-to-last coordinate
+
+Extract first point from first `M` or `m` command; last point from the final coordinate pair in the path.
+
+```python
+def first_point(d):
+    m = re.search(r'[Mm]\s*([\d.]+)[,\s]+([\d.]+)', d)
+    return float(m.group(1)), float(m.group(2))
+
+def last_point(d):
+    nums = re.findall(r'-?[\d]+\.?\d*', d)
+    return float(nums[-2]), float(nums[-1])
+
+def second_to_last_point(d):
+    nums = re.findall(r'-?[\d]+\.?\d*', d)
+    if len(nums) < 4: return last_point(d)
+    return float(nums[-4]), float(nums[-3])
+```
+
+Arrow rendering — draw a small filled triangle at the endpoint:
+
+```python
+import math
+
+def arrow_svg(x2, y2, x1, y1, size=5):
+    angle = math.atan2(y2 - y1, x2 - x1)
+    a1 = angle + 2.5
+    a2 = angle - 2.5
+    pts = f"{x2},{y2} {x2+size*math.cos(a1)},{y2+size*math.sin(a1)} {x2+size*math.cos(a2)},{y2+size*math.sin(a2)}"
+    return f'<polygon points="{pts}" fill="#111"/>'
+```
+
+## Output layout
+
+```html
+<div style="display:flex;flex-wrap:wrap;gap:12px;padding:16px;background:#faf9f7;font-family:sans-serif">
+  <!-- N panels, each: -->
+  <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+    <svg width="90" height="90" viewBox="0 0 109 109">
+      <!-- gray strokes 1..i-1 -->
+      <!-- black stroke i -->
+      <!-- start dot + number -->
+      <!-- end arrowhead -->
+    </svg>
+    <span style="font-size:11px;color:#888">{i}</span>
+  </div>
+</div>
+```
+
+Panel count ≤ 30 strokes; wrap naturally.
+
+## Frugal execution path
+
+Run everything in one `bash_tool` Python call: fetch → parse → generate HTML → write to `/mnt/user-data/outputs/stroke-{char}.html` → call `present_files`.
+
+Keep the script under 60 lines. No external deps beyond stdlib.
+
+## Attribution note
+
+KanjiVG © Ulrich Apel, CC BY-SA 3.0. Include a small footer: `Data: KanjiVG (CC BY-SA 3.0)`.
