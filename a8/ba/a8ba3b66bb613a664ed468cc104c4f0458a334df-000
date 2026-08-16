@@ -1,0 +1,176 @@
+# 10 Avril 2026
+
+[packagelist.zip](10%20Avril%202026/packagelist.zip)
+
+Addendum important : il existe un fichier PACKAGE_LISTS_APPENDIX.md séparé du
+backup F: qui contient les listes de packages Chocolatey, pip system Python,
+npm globals, Cargo et Rust toolchains qui n'étaient PAS couverts par le
+winget_apps_export.json initial. Ce fichier est sur une clé USB / transféré
+manuellement depuis l'ancien PC (chemin à me confirmer). Il contient des
+commandes prêtes à copier-coller pour Chocolatey (20 packages, build tools VS
+2022 + Python 3.14 + dotnetfx + vcredist), pip (83 packages Python dont torch,
+openai-whisper, playwright, opencv, huggingface_hub, yt-dlp, markitdown),
+npm globals (5 packages dont 3 MCP servers critiques pour Claude Desktop et
+Cursor : @notionhq/notion-mcp-server, @zed-industries/claude-code-acp, cursor-acp,
+plus vercel CLI), cargo (tauri-cli v2.10.1), et rustup. Cette phase doit être
+exécutée APRÈS la Phase 2 (install des apps de base) et AVANT la Phase 3
+(install des DCC), car certains DCC dépendent de ces packages (notamment
+tauri-cli pour le développement, les MCP servers pour le fonctionnement de
+Claude Desktop avec config MCP restaurée depuis F:\Backup_C_2026-04-10\Users_matth\AppData\Roaming\Claude\claude_desktop_config.json).
+Demande-moi où se trouve PACKAGE_LISTS_APPENDIX.md sur ce nouveau PC avant de
+commencer la Phase 2.5, et lis-le intégralement.
+
+tout les fichiers sont dans ce dossier
+
+[packagelist.zip](10%20Avril%202026/packagelist%201.zip)
+
+It’s inacceptable : 
+
+I’m the most lazy guy on earth never ask myself something that you could do by yourself
+
+Salut Claude, je suis matth, et tu dois m'aider à restaurer intégralement mon environnement
+de travail sur ce nouveau PC Asus ProArt (AMD Ryzen AI HX 370X + RTX 5080, Windows 11)
+depuis un backup complet fait sur mon ancien laptop (Intel i9-13950HX + RTX 4090, nommé
+ZenRayMonolith). Tout le backup est sur le disque externe F: que je viens de brancher.
+La source de vérité absolue pour la restauration est le fichier F:\Backup_C_2026-04-10\[INDEX.md](http://index.md/)
+que tu dois lire en premier, en entier, sans sauter de section. Ce fichier contient les
+phases 1 à 12 de la restauration dans l'ordre exact à suivre, avec les chemins source →
+destination pour chaque dossier, les commandes PowerShell prêtes à copier-coller, et une
+section Troubleshooting. Commence par le lire intégralement puis fais-moi un résumé en
+3 points de ce que tu as compris avant toute action, pour que je valide que tu as bien
+saisi le plan global.
+
+Contexte essentiel que tu dois connaître avant de commencer : (1) Le backup sur F: contient
+une copie intégrale de C:\Users\matth\ de l'ancien PC (543 GB, 773 000 fichiers, vers
+F:\Backup_C_2026-04-10\Users_matth\) ainsi que des extraits critiques de C:\ProgramData\
+(F:\Backup_C_2026-04-10\ProgramData\), notamment le Vault Unreal Engine de 84 GB avec
+Hillside_5.7, MedievalGame_5.3 et FabLibrary. Les licences Houdini (37009.license.lic)
+sont dans F:\Backup_C_2026-04-10\Users_matth\Downloads\, et Downloads contient aussi les
+installeurs Substance Designer 15, Substance Sampler, Houdini 19.5, RizomUV 2025, Megascans
+Bridge, iTunes, Wispr Flow. (2) Un autre disque existe, E: (un SSD portable USB-C Crucial
+CT2000P3 2TB), qui contient 1.7 TB de mes projets personnels (ZenRayProductions, DCC
+portables, polices, médias) ; ses permissions NTFS ont été nettoyées via takeown+icacls
+sur l'ancien PC pour être portables, MAIS ce nouveau ProArt a un bug de driver USB4/AMD
+chipset qui fait freezer l'OS à l'énumération du disque — il FAUT absolument updater
+Windows + BIOS Asus + drivers chipset AMD + firmware USB4 AVANT de rebrancher ce disque E:,
+sinon risque de corruption NTFS par unclean shutdowns répétés. (3) BitLocker est désactivé
+sur tous les disques, le nom d'utilisateur cible doit être identique à l'ancien (matth)
+pour que les chemins absolus dans les configs (Claude Desktop MCP, Houdini packages,
+Cursor settings, etc.) continuent à fonctionner sans édition manuelle. (4) Le dossier
+Downloads\.git a été supprimé volontairement du backup (il faisait 15 GB de résidus git
+inutiles). (5) Ne restaure PAS le contenu de AppData\Local\Temp, AppData\Local\Packages,
+les dossiers Cache, GLCache, DXCache, rattler, uv, npm-cache, ms-playwright, Spotify\Storage,
+Google\Chrome\User Data\Default\*Cache* — ce sont plus de 100 GB de caches réinstallables
+qui feraient perdre du temps et de l'espace.
+
+Ton plan d'exécution, après avoir lu [INDEX.md](http://index.md/), doit être le suivant : (1) Commence par
+faire un état des lieux du nouveau PC : version Windows (Get-ComputerInfo), version BIOS
+Asus (Get-WmiObject Win32_BIOS), drivers AMD chipset + USB4 installés, Windows Updates
+en attente (UsoClient), Fast Startup actif ou non. Affiche-moi ce rapport et propose un
+plan de mise à jour AVANT de toucher à quoi que ce soit. (2) Une fois les updates faites
+et que j'ai validé, suis les phases de [INDEX.md](http://index.md/) dans l'ordre strict : Phase 1 (secrets :
+.ssh, .gitconfig, .claude, .codex, .mcp-auth, .config) → Phase 2 (installe NVIDIA, 7-Zip,
+Git, Node, Python, Bun, Rust, Chrome, Cursor, Claude Desktop, PowerToys, Windows Terminal)
+→ Phase 3 (installe les DCC : Blender, Houdini, Maya, Substance suite, Photoshop, UE5,
+DaVinci, RizomUV, SpeedTree) SANS lancer ces apps avant la phase 4 → Phase 4 (restaure
+Documents\houdini21.0, houdini19.5, maya, xgen, Adobe, Megascans Library, Blackmagic,
+The Witcher 3, Rockstar, My Games, Backgrounds) → Phase 5 (restaure AppData\Roaming et
+AppData\Local SÉLECTIVEMENT selon la liste d'[INDEX.md](http://index.md/), en EXCLUANT les caches) → Phase 6
+(Pictures, Videos, Music, Desktop, Favorites) → Phase 7 (Downloads : tout copier, y compris
+la licence 37009.license.lic et les installeurs) → Phase 8 (OneDrive : UNIQUEMENT si la
+sync Microsoft ne ramène pas tout automatiquement, sinon skip) → Phase 9 (ProgramData :
+Epic\VaultCache, SideFX, Autodesk, Claude, GOG — nécessite cmd admin) → Phase 10 (licences :
+import 37009.license.lic dans Houdini License Administrator) → Phase 11 (vérifications de
+la checklist d'[INDEX.md](http://index.md/)) → Phase 12 (nettoyage : supprime Downloads\cookies.* pour sécurité).
+(3) Pour CHAQUE phase tu me demandes ma validation avant de lancer les commandes, surtout
+celles qui écrivent dans AppData ou ProgramData, et tu utilises robocopy avec /E /XJ /R:1
+/W:2 pour tous les gros dossiers (pas Copy-Item qui est beaucoup plus lent et fragile sur
+les longs chemins). (4) Si une phase échoue, tu me dis exactement quel fichier a échoué
+et pourquoi, tu ne passes JAMAIS à la phase suivante en silence. (5) À la fin, tu fais
+tourner la checklist de vérification de [INDEX.md](http://index.md/) (ssh -T [git@github.com](mailto:git@github.com), git clone test,
+Houdini license OK, Substance shelves OK, Claude Desktop MCP OK, etc.) et tu me donnes
+un rapport final avec ce qui a marché, ce qui n'a pas marché, et ce qui reste à faire
+manuellement. Je ne suis pas expert Windows/PowerShell donc explique-moi chaque commande
+en français simple avant de la lancer, et attends mon "ok" pour chaque opération destructive.
+Commence maintenant par lire F:\Backup_C_2026-04-10\[INDEX.md](http://index.md/) en entier et donne-moi ton
+résumé en 3 points + ton état des lieux du nouveau PC.
+
+Solution utiliser un usb type a vers usb c … why not.
+
+[packagelist.zip](10%20Avril%202026/packagelist%202.zip)
+
+`Salut Claude, je viens de t'installer sur mon nouveau PC et j'ai besoin de ton aide pour
+diagnostiquer un problème matériel/driver spécifique. Voici le contexte : je suis en pleine
+migration depuis mon ancien laptop (Asus avec Intel i9-13950HX + RTX 4090, nom machine
+"ZenRayMonolith", Windows 11) vers ce nouveau laptop Asus ProArt équipé d'un AMD Ryzen AI
+HX 370X + RTX 5080, également sous Windows 11. Le nouveau PC vient juste d'être déballé et
+je n'ai pas encore fait les mises à jour Windows ni les drivers chipset récents. Sur l'ancien
+PC, une session précédente de Claude Code a commencé à copier mon dossier utilisateur
+C:\Users\matth vers un disque de backup F: (environ 630 GB, copie toujours en cours), donc
+ne t'inquiète pas pour mes données critiques — elles sont sauvegardées. Mon problème actuel
+concerne un AUTRE disque : un SSD portable USB-C Crucial CT2000P3 PSSD8 de 2 TB qui était
+E: sur l'ancien PC et qui apparaît en D: sur ce nouveau PC. Ce disque contient 1,7 TB de
+données critiques : tous mes projets 3D (ZenRayProductions avec Houdini/Maya/Unreal), mes
+DCC portables, polices, assets, médias, etc.
+
+Le problème : quand je branche ce SSD portable en USB-C sur le nouveau ProArt, **l'écran
+devient gris et tout le PC freeze complètement**. Quand je débranche le disque, le PC se
+déverrouille immédiatement. Une fois, après avoir exécuté un 'takeown /F E:\ /A /R /D Y'
+sur l'ancien PC (pour corriger les permissions NTFS), le disque a fonctionné brièvement
+sur le nouveau PC et j'ai pu voir le contenu — mais depuis, il refreeze à chaque rebranchement.
+L'hypothèse de la session précédente de Claude : c'est probablement un bug d'énumération UASP
+(USB Attached SCSI Protocol) lié à l'immaturité des drivers USB4/AMD chipset sur ce ProArt
+flambant neuf (fin 2024/2025), qui cause un hang kernel pendant l'enum PCIe du périphérique.
+Sur l'ancien PC, le disque est parfaitement sain (NTFS 3.1, pas de dirty flag, ACL standard
+avec BUILTIN\Users en Full Control, BitLocker désactivé — tout a été vérifié). Le problème
+n'est donc pas le disque lui-même, mais la façon dont ce nouveau PC l'énumère.
+
+Ce que j'aimerais que tu fasses, dans l'ordre, SANS que je rebranche le disque (pour éviter
+de corrompre le NTFS avec des unclean removals répétés) : (1) analyse l'état actuel de ce
+nouveau PC — version exacte de Windows (winver/Get-ComputerInfo), version du BIOS Asus
+(Get-WmiObject Win32_BIOS), version des drivers AMD chipset et USB4/Thunderbolt installés,
+liste des Windows Updates en attente, et état du service Fast Startup. (2) Lis les Event
+Logs Windows (System + Microsoft-Windows-USB-UCX + Kernel-Power) pour trouver les traces
+des freezes précédents quand j'ai branché le disque — cherche des events de type "kernel
+hang", "unexpected shutdown", disk surprise removal, USB enumeration failure. (3) Vérifie
+si des pilotes sont marqués avec un warning dans Device Manager (Get-PnpDevice). (4) Sur
+base de tes trouvailles, propose-moi un plan d'action sûr pour updater le BIOS, les drivers
+chipset AMD, le firmware USB4/Thunderbolt depuis le site Asus, désactiver Fast Startup, et
+changer la politique de retrait rapide (Fast Removal vs Better Performance). (5) Une fois
+tout updaté, donne-moi un protocole de re-branchement sécurisé avec exactement quoi observer
+et quels logs capturer si ça freeze encore. Je suis français et je ne suis pas expert en
+Windows / hardware, donc explique-moi chaque étape simplement, en français, et attends ma
+confirmation avant toute action destructive.`
+
+---
+
+## **📌 Comment t'en servir**
+
+1. Copie le bloc ci-dessus (tout ce qui est entre les triples backticks)
+2. Dans le terminal du nouveau PC, lance `claude`
+3. Colle le prompt quand Claude Code t'invite à saisir ton message
+4. Envoie
+5. Claude sur l'autre PC va lancer des commandes de diagnostic et t'expliquer tout
+
+## **⚠️ Note importante**
+
+Ce prompt dit explicitement à l'autre Claude : **"sans rebrancher le disque"**. C'est crucial pour protéger ton NTFS. L'autre Claude ne devrait te demander de rebrancher qu'APRÈS avoir vérifié que les drivers/BIOS sont à jour.
+
+Si jamais l'autre Claude te demande trop tôt de rebrancher, dis-lui **"non, d'abord finis les updates"** — j'ai insisté dans le prompt mais certaines versions de Claude peuvent être trop empressées.
+
+Pendant ce temps, la copie C→F sur l'ancien PC continue (ETA ~20 min restantes).
+
+IL faut que je me remette à créer et à apprendre peut être lire le livre fabuleux qui permet l’acquisition en fait j’ai à la fois besoin de retenir les informations et donc travail et sommeil bref je pense que ça va le faire je reçois une machine de guerre qui ne va plus planter sur houdini et je pourrai lancer en  simultanné les logiciels et me déplacer donc c’est très cool. Ensuite je bug fix internet. via redbox sfr.
+
+Mais ça reste bizarre un monde ou on peut tout apprendre faire modifier à partir d’une AI ce qui va compter c’est de comprendre le logiciel. peut être qu’après bayou je pourrai tenter un petit jeu avec une petite idée de game mechanics ? Et en parralèlle postuler chez des gens je ne sais pas je n’arrive pas à savoir comment aborder des studios etc.
+
+- vaincre avec le régent
+- recevoir le pro art installer tous les logiciels
+- avancer continuer le bayou clean up les graphs.
+- essayer de résoudre internet
+- retester crimson desert.
+- je vais aller à l’ihemn pour récupérer mon processeur pour le vendre.
+
+Apprendre le japonais
+
+Continuer et publier.
