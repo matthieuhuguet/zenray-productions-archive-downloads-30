@@ -1,0 +1,76 @@
+# script_font_gemini
+
+Created: August 22, 2025 12:11 PM
+
+New
+PP Mori
+
+```
+* {
+  font-family: "PP Mori", sans-serif !important;
+}
+.google-symbols,
+[class*="google-symbols"],
+.notion-icon {
+  font-family: "Material Symbols Outlined", "Google Symbols", "Material Icons" !important;
+}
+```
+
+```css
+    :root {
+        --font-main: -apple-system, "Segoe UI", sans-serif;
+        --font-mono: "SFMono-Regular", Consolas, monospace;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    body, body * {
+        font-family: var(--font-main) !important;
+    }
+
+    pre, code, pre *, code *,
+    .code-block, .code-block *, .code-container, .code-container *,
+    .monaco-editor, .monaco-editor *, span[class*='mtk'],
+    .hljs, .hljs *, .prose pre, .notion-code-block *,
+    .mat-mdc-unelevated-button.gds-pillbox-button .mdc-button__label,
+    [class*="bg-black"] code {
+        font-family: var(--font-mono) !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        font-variant-ligatures: none !important;
+    }
+
+    pre b, code b, pre strong, code strong, .hljs-strong, .cm-strong {
+        font-family: var(--font-mono) !important;
+        font-weight: 700 !important;
+        font-style: normal !important;
+    }
+
+    pre i, code i, pre em, code em, .hljs-emphasis, .cm-em {
+        font-family: var(--font-mono) !important;
+        font-style: italic !important;
+        font-weight: 400 !important;
+    }
+
+    .google-symbols, [class*="google-symbols"],
+    .material-icons, [class*="material-icons"],
+    .material-symbols-outlined,
+    mat-icon, yt-icon, .notion-icon {
+        font-family: 'Material Symbols Outlined', 'Google Symbols', 'Material Icons' !important;
+        font-weight: normal !important;
+        font-style: normal !important;
+        line-height: 1 !important;
+        letter-spacing: normal !important;
+        text-transform: none !important;
+        display: inline-block !important;
+        white-space: nowrap !important;
+        word-wrap: normal !important;
+        direction: ltr !important;
+        -webkit-font-feature-settings: 'liga' !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        font-feature-settings: 'liga' !important;
+        text-rendering: optimizeLegibility !important;
+    }
+
+```
