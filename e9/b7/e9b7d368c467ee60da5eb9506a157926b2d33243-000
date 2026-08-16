@@ -1,0 +1,5 @@
+# :linkedin_icon: Linkedin Livrable le Monde Récompense les Petits Efforts Publiés Fréquement : Faire le post à propos de la formule sur houdini qui permet de randomiser toutes les parties d’un ensemble. fit01( rand( detail("../foreach_begin1_metadata1","iteration",0) + ch("seed") ), 0.85, 1.15 )
+
+Date 1: September 29, 2025
+CEE: 1 Essential
+Done: Yes
