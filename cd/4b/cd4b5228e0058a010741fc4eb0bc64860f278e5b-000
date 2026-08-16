@@ -1,0 +1,95 @@
+# 17 Février 2026
+
+J’adore le delire des artistes comme pierre niney
+
+Pour le coup on a bien avancé !
+
+![image.png](17%20F%C3%A9vrier%202026/image.png)
+
+Une fois que c’est terminé. Substance. Aller go.
+
+Ce souvenir du Highpass Grayscale.
+
+![image.png](17%20F%C3%A9vrier%202026/image%201.png)
+
+![image.png](17%20F%C3%A9vrier%202026/image%202.png)
+
+Le flood fill ne peut pas être en mode no tiling.
+
+S’intéresser à cette vidéo : 
+
+https://www.youtube.com/watch?v=lrreuz0RLNA
+
+J’ai vraiment envie de réussir en tant qu’Artiste j’adore pierre niney je le trouve très drole je trouve qu’il à su amener. une vrai fraicheur à l’écosystème des acteurs françis faisant le pont entre les médias traditionnels et les anciens. Bref c’est vraiment quelqu’un qui a su s’adapter.
+
+donner du statut aux gens contre un prix le tshirt ou les dinners.
+
+Polybius.
+
+Les jeux AAA coûtent +200M$ et prennent 5-7 ans. Les outils IA actuels ne comprennent pas les jeux. Un modèle fondationnel natif jeu vidéo fera pour le game dev ce que GitHub Copilot a fait pour le code.
+
+Le game dev est bloqué, les coûts explosent, les outils n'ont pas fondamentalement changé. L'IA actuelle est fragmentée et superficielle dans le secteur. Les designers passent 80% du temps sur l'exécution et 20% sur la créativité.
+
+un modèle fondationnel "game-native" ~2-3%
+
+Il garde 20% pour une idée. Dans l'écosystème startup, les idées valent 0%. L'exécution vaut tout.
+
+Terme nouveau : 
+
+Pitch Deck. slide pour convaincre soit des investisseurs soit un founder de rejoindre l’aventure, bref un slide powerpoint mais pour Investisseurs.
+
+***Un Pitch Deck, c'est une présentation courte (10-20 slides) qui raconte l'histoire de ta startup pour convaincre quelqu'un de miser sur toi — que ce soit de l'argent (investisseurs) ou du temps (co-fondateurs, talents clés).***
+
+![image.png](17%20F%C3%A9vrier%202026/image%203.png)
+
+![image.png](17%20F%C3%A9vrier%202026/image%204.png)
+
+## Utilise le nœud **Safe Transform** au lieu de Transformation 2D
+
+D'après la [doc Safe Transform](https://helpx.adobe.com/substance-3d-designer/substance-compositing-graphs/nodes-reference-for-substance-compositing-graphs/node-library/filters/transforms/safe-transform.html), ce nœud a un paramètre clé : **Tile Safe Rotation** — qui détermine si la rotation doit se verrouiller sur des valeurs "safe" qui ne floutent aucun pixel [Adobe](https://helpx.adobe.com/substance-3d-designer/substance-compositing-graphs/nodes-reference-for-substance-compositing-graphs/node-library/filters/transforms/safe-transform.html).
+
+Quand ce paramètre est activé, la rotation est contrainte à des angles qui préservent le tiling (0°, 90°, 180°, 270° et quelques autres valeurs spécifiques). Ça évite le problème que tu as avec Transformation 2D qui casse le tiling à des angles arbitraires.
+
+## Pourquoi Transformation 2D casse le tiling
+
+Flood Fill toujours un edge detect! Pas derrière un transform 2D.
+
+![image.png](17%20F%C3%A9vrier%202026/image%205.png)
+
+Pour créer un distance il faut toujours faire en sorte de flood fill to random grayscale !
+
+![image.png](17%20F%C3%A9vrier%202026/image%206.png)
+
+Voici ce qu’on veut obtenir.
+
+![image.png](17%20F%C3%A9vrier%202026/image%207.png)
+
+L’agent Linkedin qui passe de 0 à 20K.
+
+Du gout et de la patience, l’AI imbattable.
+
+Suno AI
+
+![image.png](17%20F%C3%A9vrier%202026/image%208.png)
+
+Bon c’est vraiment dur mais ça va le faire.
+
+![image.png](17%20F%C3%A9vrier%202026/image%209.png)
+
+![image.png](17%20F%C3%A9vrier%202026/image%2010.png)
+
+![image.png](17%20F%C3%A9vrier%202026/image%2011.png)
+
+![image.png](17%20F%C3%A9vrier%202026/image%2012.png)
+
+https://www.youtube.com/watch?v=gbFFFbr0rYs 
+
+Pour faire une pause. et la on focus uniquement sur Substance ! Go ! Aller on a beaucoup de choses à faire.
+
+**Le Playbook d'Ouss**
+
+Publier site web
+
+Substance Designer continuer bien comprendre grâce à Javier Perez.
+
+l’ère de l’IA réduire les effectifs. ? Comment se positionner dans un marché b2b qui n’a plus besoin d’un tech / vfx artist dans ce cas là faire en sorte de réussir autrement.
