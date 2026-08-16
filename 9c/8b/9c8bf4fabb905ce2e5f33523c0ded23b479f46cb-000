@@ -1,0 +1,179 @@
+# 18 Février 2026
+
+---
+
+FERME TA GUEULE ET BOSSE
+
+honnetement on entre dans la phase que j aurais du atteindre il y a maintenant 2 ans mais c est la production devient maintenant et tu peux reussir
+
+chase le reve de freelance international highly skilled professionnal réussir quelque chose de très difficile je peux réussir grrâcce à l’ai ,, a mes stacksd techniques, la patience en apprenant énormément ça va le faire
+
+publie et améliore le contenu et la forme sans cesse devient cet auteur matthieu.
+
+ENFIN PUBLIER LE RESULTAT FINAL SUR 4/2 SOCIALS
+
+PUBLIER WEBSITE
+
+PUBLIER SUBSTANCE DESIGNER
+
+LE WEBSITE DOIT ALIMENTER TOUT ET ÊTRE UN RELAIS VERS SOCIALS TOUT DOIT ÊTRE CENTRALISER GO ET SIMPLIFIER.
+
+faut vraiment que je commence les vidéos en anglais sur youtube sinon ça va jamais décoller.
+
+Demain je bosse pas de sport une bonne gestion du temps stp.
+
+Continuer le plugins mais en soit il est quasi terminé le but est de pouvoir intéragir dessus.
+
+Ok intéressant il a récupérer la structure du cours de Javier Perez directement sur Substance Designer
+
+En attendant les agents, je vais déjà explorer le fichier SD de Javier Perez qui est ouvert dans SD — c'est de l'or en barre.
+
+Analyzed RockForm01 graph structure and node composition details
+
+Excellent — Javier utilise massivement `sbscompgraph_instance` (library nodes). Analysons les URLs de ces instances :
+
+Executed Substance Designer script to list material instances from Javier package
+
+**Voilà les vrais nodes de Javier Perez.** Maintenant analysons la chaîne complète avec connexions et paramètres :
+
+Executed Substance Designer script to analyze node graph chain structure
+
+**Pattern de Javier Perez pour RockForm01 :**
+
+- Base : `polygon_2` → `levels` → `blend`
+- Noise : `cells_1`, `perlin_noise`, `crystal_1`, `clouds_2`
+- Warp chain : `warp` → `directionalwarp` → `warp` (3 passes!)
+- Detail : `slope_blur_grayscale_2` pour les crêtes/érosion
+- Finish : `invert_grayscale` + `blend` final
+
+Maintenant récupérons les ports exacts de `slope_blur_grayscale_2` et `blur_hq_grayscale`
+
+J’ai envie de geeker.
+
+Sur claude code de faire des enviros bref la période est propice !
+
+**« La simplicité, c'est ce qu'il y a de plus difficile. » — Saint-Exupéry.**
+
+Et c'est ce qui paie le plus.
+
+Est-ce que tu peux exprimer ta valeur avec des mots simples, avant que les gens zappent ? Pas décrire ton produit. Te décrire, toi. C'est un exercice qui prend du temps.
+
+[SportBodyweight (1)](18%20F%C3%A9vrier%202026/SportBodyweight%20(1)%2030bd4ee179c380f78874e8074d0423f9.md)
+
+soit construire des machines qui permettent de construire des systèmes mais bon ça a ses limites, le monde devenant de plus en plus complexes et mon but étant de créer des environnements ou bien des expériences de jeu séduisantes.
+
+```jsx
+	Faire attention à ne jamais trop écrire, faire les choses en petits blocs par petits blocs On a actuellement ce projet de Substance Designer Plugins MCP mais il ne fonctionne absolument pas, pour la reproduction de heightmap etc. J'aimerai développer une logique ou il s'appuie sur une documentation solide notamment via Parse WEB énormément de ressources tu peux aller notamment recherche comment MeshModeler Javier Perez et Louise Melin Technical Artist at Substance and Playstation font leur graph.
+
+Donc Fetch Parse tout le web utile.
+
+TANT QUE CE N’EST PAS PARFAIT CONTINUE, ENDLESS LOOP.
+
+Parse Entièrement la Doc + forums + all domains web relevant and programming stuff : [**https://helpx.adobe.com/substance-3d-designer/getting-started/overview.html**](https://helpx.adobe.com/substance-3d-designer/getting-started/overview.html)
+
+[**https://helpx.adobe.com/substance-3d-designer/home.html**](https://helpx.adobe.com/substance-3d-designer/home.html)
+
+La doc officiel couvre environ 50 % des usecases. Vise un résultat 80 / 20.
+
+I want an elite result, if the result isn't perfect at 99.9% continue.
+
+Le but est de créer le plugin mcp via ClaudeCode puis de pouvoir intéragir créer des graphs rapidement en une simple instruction par rapport à des recipes qui fonctionne pas juste générer des graphs qui n'ont pas de sens., par exemple Je veux que tu me craft entièrement la height map à partir d'une ressemblant à une heightmap de Cliff ou adopter un style par rapport à ArtStation ou Autre. (Claude Doit Comprendre toutes les instructions Python à envoyer dans le MCP de Substance Designer. pour que le graph de 256 nodes soit créé en batchant plusieurs graph Tu dois refactoriser de Zéro L'existant. Si tu as des questions sur un manque de clarté pose les maintenant sinon commence. Mais en soit tu n'as pas de limites de lignes de codes mais soit hyper complet. Crée un protocole de teste ou chaque features ajoutés doit être niquel avant d'être écrite puis tester. pour ne jamais faire d'erreurs de code. et un taux d'erreurs nul. Je veux que ce soit dev comme un senior dev Apple / Microsoft / Epic. Ce doit être parfait.
+
+Crée un maximum de recette pour matériaux hyper complet :
+
+- Métaux (5) : Fer/Acier, Cuivre, Or, Argent, Aluminium.
+- Minéraux/Roches (5) : Granit, Marbre, Grès, Calcaire, Ardoise.
+- Organique (5) : Bois (Chêne, Pin, etc.), Mousse, Os, Corail, Coquillage.
+- Peau/Biologique (5) : Peau humaine, Écailles, Plumes, Fourrure, Cheveux.
+- Sols/Terre (5) : Sable, Argile, Boue, Humus, Gravier.
+- Eau/Glace (4) : Eau, Glace, Neige, Givre.
+- Gemmes/Cristaux (5) : Diamant, Rubis, Saphir, Émeraude, Améthyste.
+
+Show more
+
+Je vais d'abord analyser l'état actuel du projet, puis parser la documentation officielle de Substance Designer, avant de refactoriser complètement le plugin MCP.
+
+Updated todo list, read 2 files
+
+Now let me parse the official documentation and research expert workflows in parallel:
+
+Ran 2 agents
+
+Show more
+
+Show more
+
+Bien reçu - les agents de recherche sont en train de parser la documentation. En attendant, laisse-moi analyser les lacunes critiques du système actuel et commencer la refactorisation depuis zéro.
+
+Read 5 files, ran 3 commands
+
+Excellent — j'ai une bonne vue d'ensemble. Le système actuel a de bonnes bases mais manque d'un moteur de recettes structuré et de vraies recettes testées. En attendant les agents de recherche, je vais concevoir et écrire le système complet.
+
+Updated task tracker with completed analysis items
+
+Je commence la refactorisation complète du plugin. C'est le cœur du système :
+
+Created Substance Designer MCP Plugin initialization file with architecture documentation
+
+Je comprends — je dois avancer sans bloquer. Je vais procéder étape par étape, petite livraison après petite livraison. Maintenant je crée le module de recettes `recipes.py` :
+
+Analyzed SD MCP plugin codebase and wrote v3.0 with recipe engine
+
+API Error: Claude's response exceeded the 32000 output token maximum. To configure this behavior, set the CLAUDE_CODE_MAX_OUTPUT_TOKENS environment variable.
+```
+
+LA SIMPLICITE C EST CE QUIL Y A DE PLUS DIFFICILE ST EXUPERY enlever ne pas rajouter. c’est ce qui paie le plus.
+
+est ce que tu peux exprimer quel est ta valeur avec des mots SIMPLES avant que les gens zappe. pas décrire le produit mais décrire toi. exercice qui prend du temps.
+
+> ***Quel problème douloureux je comprends mieux que n'importe qui, et pour qui ?"***
+> 
+
+Si tu as une réponse à ça, les géants ne sont pas ton problème. **L'exécution l'est.** Et ça, c'est entre tes mains.
+
+Tu bosses sur quoi concrètement ? Je peux t'aider à affiner le positionnement.
+
+Je vais aller au cowork de manière systématique afin de “commencer à vivre “.
+
+Next time is big time.
+
+![image.png](18%20F%C3%A9vrier%202026/image.png)
+
+- [ ]  IDEE Ce qu’on peut faire en tant que Side Business c’est vendre des assets sur internet et je suis sur que ça va intéresser des Gens notamment Substance Designer MCP, bref tout le marché. Ensuite je veux créer des jeux vidéos.
+- [ ]  Execution : Finir mon graph publier sur Linkedin Artstation Instagram Twitter et en même temps que le site web. / Youtube c’est un truc à part. petit à petit il faut build ça.
+- [ ]  Faire bosser Claude qui est de plus en plus intelligent. à côté. Problème c’est que ça me fait perdre du temps !
+En vrai avec toutes les musiques qu’on a ou même Youtube MCP on peut lui demander de me faire des vidéos en solo me proposer 3 variations et on voit ce que ça donne. Claude c’est vraiment le plus puissant. TANT QUE CE N’EST PAS PARFAIT CONTINUE, ENDLESS LOOP. Créer un protocole de test ultra complet pour tester et corriger en accord. Je corrige **tous les bugs en une seule passe** maintenant. Paralléliser. On va pas tester tous les bugs un par un parallèllise tous les bugs à trouver pour 80 % des usages sur substance designer d'un coup puis corrige tous puis je relance et on a la solution finale. N'oublie pas de créer les choses étapes par étapes et rapidement divise les commandes à envoyer en plusieurs batch
+
+Logo : 
+
+Pour les oeuvres un peu fantasy ou complètement sérieuse.
+
+ça ça marche très très bien je trouve. c’est strait to the point.
+
+Encore plus de Marketing !
+
+![image.png](18%20F%C3%A9vrier%202026/image%201.png)
+
+![image.png](18%20F%C3%A9vrier%202026/image%202.png)
+
+![image.png](18%20F%C3%A9vrier%202026/image%203.png)
+
+![image.png](18%20F%C3%A9vrier%202026/image%204.png)
+
+![image.png](18%20F%C3%A9vrier%202026/image%205.png)
+
+[https://www.notion.so](https://www.notion.so)
+
+Essayer chaque jour d’aller sur Artstation pour être motivé et aller de l’avant. Volonté de créer des environnements AAA. Trouver l’inspiration, la motivation.
+
+![image.png](18%20F%C3%A9vrier%202026/image%206.png)
+
+![image.png](18%20F%C3%A9vrier%202026/image%207.png)
+
+![b-o-w-screenshot00005.jpg](18%20F%C3%A9vrier%202026/b-o-w-screenshot00005.jpg)
+
+J’ai peur de devenir beaucoup plus con … 
+
+Bon on va publier le site, il faut que la rage de vaincre elle reviennent ! go executer ! Publier go go go.
+
+Se concentrer sur le japonais.
