@@ -1,0 +1,189 @@
+# script_autosearch_gpt
+
+Created: August 20, 2025 11:20 PM
+
+```jsx
+// ==UserScript==
+// @name         Auto-activateur de recherche (Corrigé)
+// @namespace    http://tampermonkey.net/
+// @version      2025.08.20.1
+// @description  Tape '/search' dans un champ de texte et active l'option de recherche qui apparaît, en évitant les boucles.
+// @author       Toi & Gemini
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // --- Configuration ---
+    const CONFIG = {
+        SEARCH_COMMAND: '/search',
+        RETRY_INTERVAL_MS: 1000,
+        TYPE_DELAY_MS: 100,
+        WAIT_FOR_OPTION_MS: 1000,
+        COOLDOWN_MS: 2000 // Augmenté légèrement pour donner plus de temps à l'UI de se mettre à jour après un succès
+    };
+
+    // --- État du script ---
+    let isRunning = false;
+    let lastSuccessfulRunTimestamp = 0;
+
+    // --- Fonctions Utilitaires ---
+
+    /**
+     * Vérifie si un élément est visible et interactif à l'écran.
+     * @param {HTMLElement} el - L'élément à vérifier.
+     * @returns {boolean}
+     */
+    const isVisible = (el) => {
+        return el && el.offsetParent && window.getComputedStyle(el).visibility !== 'hidden' && !el.disabled;
+    };
+
+    /**
+     * Trouve le champ de texte (compositeur) actif et visible sur la page.
+     * @returns {HTMLElement|null}
+     */
+    const findVisibleComposer = () => {
+        const selectors = 'textarea, [contenteditable="true"]';
+        return Array.from(document.querySelectorAll(selectors)).find(isVisible);
+    };
+
+    /**
+     * Simule la saisie de texte dans un élément.
+     * @param {HTMLElement} el - L'élément cible.
+     * @param {string} text - Le texte à insérer.
+     */
+    const typeText = (el, text) => {
+        el.focus();
+        if (el.value !== undefined) {
+            el.value = text;
+            el.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+        } else {
+            document.execCommand('selectAll', false, null);
+            document.execCommand('insertText', false, text);
+        }
+    };
+
+    /**
+     * Trouve l'option/bouton de recherche dans les menus qui apparaissent.
+     * @returns {HTMLElement|null}
+     */
+    const findSearchOption = () => {
+        const menuSelectors = '[data-radix-portal] [role="listbox"], [role="listbox"], [role="menu"]';
+        const menus = Array.from(document.querySelectorAll(menuSelectors)).filter(isVisible);
+
+        for (const menu of menus) {
+            const optionSelectors = '[role="option"], [role="menuitem"], button';
+            const candidates = Array.from(menu.querySelectorAll(optionSelectors)).filter(isVisible);
+            const found = candidates.find(c => /search/i.test(c.textContent)) || candidates[0];
+            if (found) return found;
+        }
+        return null;
+    };
+    
+    /**
+     * Vérifie si un mode "recherche" est déjà actif.
+     * @returns {boolean}
+     */
+    const isSearchModeActive = () => {
+        return !!document.querySelector('button[aria-pressed="true"], [data-is-selected="true"][data-pill="true"]');
+    };
+
+    /**
+     * Simule une pression sur la touche "Entrée".
+     * @param {HTMLElement} target - L'élément sur lequel simuler l'événement.
+     */
+    const pressEnterFallback = (target) => {
+        const enterEvent = new KeyboardEvent('keydown', {
+            key: 'Enter',
+            code: 'Enter',
+            keyCode: 13,
+            bubbles: true,
+            cancelable: true
+        });
+        target.dispatchEvent(enterEvent);
+    };
+
+    /**
+     * Attend qu'une condition soit vraie, avec un timeout.
+     * @param {Function} checkFn - Une fonction qui retourne une valeur (l'élément trouvé) ou null.
+     * @param {number} timeout - Le temps maximum d'attente en ms.
+     * @returns {Promise<HTMLElement|null>}
+     */
+    const waitFor = (checkFn, timeout) => {
+        return new Promise(resolve => {
+            const startTime = Date.now();
+            const intervalId = setInterval(() => {
+                const result = checkFn();
+                if (result) {
+                    clearInterval(intervalId);
+                    resolve(result);
+                } else if (Date.now() - startTime > timeout) {
+                    clearInterval(intervalId);
+                    resolve(null);
+                }
+            }, 50);
+        });
+    };
+
+    // --- Logique Principale (Le Cerveau) ---
+
+    /**
+     * Le cœur du script, orchestrant toutes les étapes.
+     */
+    const main = async () => {
+        if (isRunning || Date.now() - lastSuccessfulRunTimestamp < CONFIG.COOLDOWN_MS || isSearchModeActive()) {
+            return;
+        }
+
+        const composer = findVisibleComposer();
+        if (!composer) {
+            return;
+        }
+
+        const currentText = (composer.value || composer.textContent).trim();
+        if (currentText && currentText !== CONFIG.SEARCH_COMMAND) {
+            return;
+        }
+        
+        isRunning = true;
+
+        try {
+            if (currentText !== CONFIG.SEARCH_COMMAND) {
+                typeText(composer, CONFIG.SEARCH_COMMAND);
+            }
+            await new Promise(resolve => setTimeout(resolve, CONFIG.TYPE_DELAY_MS));
+    
+            const searchOption = await waitFor(findSearchOption, CONFIG.WAIT_FOR_OPTION_MS);
+    
+            // --- DÉBUT DE LA CORRECTION ALGORITHMIQUE ---
+            if (searchOption) {
+                // CAS DE SUCCÈS : Le bouton est trouvé.
+                searchOption.click();
+                // On enregistre le succès UNIQUEMENT ici. Cela active le cooldown.
+                lastSuccessfulRunTimestamp = Date.now(); 
+            } else {
+                // CAS D'ÉCHEC / PLAN B : Le bouton n'est pas trouvé.
+                // On tente d'appuyer sur "Entrée", mais sans considérer cela comme un succès.
+                // Si cette action ne change rien sur la page, le script réessaiera au prochain intervalle
+                // sans être bloqué par un cooldown de succès inexistant.
+                pressEnterFallback(composer);
+                // On NE met PAS à jour `lastSuccessfulRunTimestamp` ici. C'est le point clé.
+            }
+            // --- FIN DE LA CORRECTION ALGORITHMIQUE ---
+
+        } catch (error) {
+            console.error("Erreur dans l'auto-activateur de recherche :", error);
+        } finally {
+            isRunning = false;
+        }
+    };
+
+    // --- Démarrage ---
+    setInterval(main, CONFIG.RETRY_INTERVAL_MS);
+    console.log("Auto-activateur de recherche (corrigé) démarré.");
+
+})();
+
+```
