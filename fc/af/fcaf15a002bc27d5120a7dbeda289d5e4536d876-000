@@ -1,0 +1,243 @@
+# 15 Février 2026
+
+Histogram Scan = "tout ce qui est au-dessus de X → blanc, le reste → noir"
+Avec le contrast qui décide si la transition est douce ou brutale.
+Un seuil réglable. Il transforme une image en gris en noir et blanc en choisissant où couper.
+
+![image.png](15%20F%C3%A9vrier%202026/image.png)
+
+chien qui sommeil mais de quoi a t’il peu
+
+chien qui
+
+Petit graph rapide pour éviter le distance
+
+![image.png](15%20F%C3%A9vrier%202026/image%201.png)
+
+J’ai l’impression que c’est le bouton sur notion qui me faisait bug !!!
+
+Vasy j’ai envie de vivre désormais
+
+J’ai activé Gsync en window c’est beaucoup plus fluide !
+
+Vasy j'ai envie de vivr
+
+![image.png](15%20F%C3%A9vrier%202026/image%202.png)
+
+ Javier is doing things super super small never going to far.
+
+Différence entre ceux les plus utilisés
+
+![image.png](15%20F%C3%A9vrier%202026/image%203.png)
+
+|  | **Slope Blur** | **Non-Uniform Blur** | **Multi-Dir Warp** |
+| --- | --- | --- | --- |
+| **Analogie** | 💧 Eau qui coule sur une pente | 🖐️ Flou au doigt variable | 🕸️ Tissu tiré en étoile |
+| **Action** | Étale **le long d'une pente** | Floute **sur place** | Déforme **dans plusieurs directions** |
+| **Guide** | Carte de **hauteur** (pente) | Masque d'**intensité de flou** | Masque d'**intensité de warp** |
+| **Direction** | Dictée par la **pente du relief** | **Aucune** (flou uniforme isotrope) | **Multiples** (paramétrable) |
+| **Résultat typique** | Coulures, érosion | Lissage sélectif | Étalement organique |
+| **Déplace les pixels ?** | ✅ Oui, le long de la pente | ❌ Non, juste du flou | ✅ Oui, dans plusieurs directions |
+
+Ceux qui reviennent souvent mais je ne sais pas les différencier.
+
+![image.png](15%20F%C3%A9vrier%202026/image%204.png)
+
+Bevel Node ajoute en plus des bords arrondis.
+
+![image.png](15%20F%C3%A9vrier%202026/image%205.png)
+
+C'est un flou qui ne va pas n'importe où : il suit les pentes d'une map, comme de l'eau qui coule sur un terrain. 🏔️💧
+Tu renverses de l'eau sur une montagne en miniature (un terrain en relief).
+
+L'eau coule en suivant les pentes. Elle ne va pas n'importe où — elle suit la forme du terrain.
+
+Splater circular pour jouer avec la texture. exactement comme tile sampler … toujours jouer sur la luminance color pour enlever les chevauchement.
+
+![image.png](15%20F%C3%A9vrier%202026/image%206.png)
+
+A la place du tiling …
+
+![image.png](15%20F%C3%A9vrier%202026/image%207.png)
+
+Le Multi Directional Warp :
+C'est comme si tu posais ton doigt au centre de la feuille de caoutchouc et que tu poussais dans TOUTES les directions en même temps. L'image "bave" / "s'étale" tout autour.
+Ça étale les pixels dans toutes les directions, comme de la peinture fraîche que tu écraserais avec le doigt. 👆🎨
+
+![image.png](15%20F%C3%A9vrier%202026/image%208.png)
+
+https://www.youtube.com/watch?v=mx5r6BIZzWU 1/2 voir la vidéo ensuite. Work Phase sur Substance dès maintenant publication du projet sur ArtStation.
+
+Faudrait que je lise un peu.
+
+Faudrait que je gagne mon argent de manière plus récurrente pour entreprendre de me déplacer dans le monde. à ma convenance ? Oui mais pourquoi ? Pour Créer une grande oeuvre, commencer petit et itérer. Je suis vraiment aligné avec la vision des studios de jeux vidéos j’ai une life time et je dois l’utiliser au maximum pour vivre à fond ma vie.
+
+Je vais faire en sorte de me lever et d’aller vers un lieu de travail le matin. N’ait pas peur que les gens voient ce que tu fais ce n’est pas une excuse si tu te sens bloqué à aix en provence, essaie de créer les mécanismes qui te débloquent moi je pense que c’est : 
+
+PUBLIER DE LA QUALITé !!!
+
+Préfecture au japon.
+
+En soit amin dit ça le fait chier mais il le fait quand même il est quand même sacrément mature.
+
+En soit c’est comme tout dans la vie si tu veux obtenir des trucs ça va pas tomber en automatique il faut créer des systèmes qui te permettent de te rémunérer, bref aller de l’avant. C’est quand même un mec incroyable.
+
+Aller au sport ce soir, faire les bras tranquillement finir absolument
+
+Tu vas pas au sport tant que tu as pas fini Substance Designer et tu ne dors pas idéalement publier le site demain.
+
+Aller faut executer et aller au japon gagner de l’argent.
+
+Mais c’est vrai que le truc qui me drive le plus c’est clairement créer un jeu AAA avec une musique de fou…
+
+![image.png](15%20F%C3%A9vrier%202026/image%209.png)
+
+Jeux intéressant upcoming
+
+Kena. 2
+
+Pragmata avec la démo.
+
+Control Resonant a l’air Ok mais toujours un peu AA tu te dis pas que c’est incroyable même avec le gameplay.
+
+Beast of reincarnation (GameFreak a vraiment l’air cool)
+
+Project Windless.
+
+Saros 
+
+Marathon
+
+Jujutsu Kaisen
+
+Bonne playlist.
+
+[Je bosse sur ma prochaine conférence](https://www.youtube.com/watch?v=xiBqQ6D1q60)
+
+Le seul truc que je pourrai regretter au japon ce serait de ne pas aller au japon de peur et de ne pas vivre ma vie. qu’est ce qui t’empeche des ici de vivre ta vie ?
+
+![image.png](15%20F%C3%A9vrier%202026/image%2010.png)
+
+Ce serait cool de relever le challenge suivant 
+
+Recréer le jeu de GameFreak avant qu’il ne sorte ! → maintenant l’idée c’est d’adapter le réflexe je veux faire un jeu sur x sujet devient je veux faire tel projet pour la freelance.
+
+Ajouter le pourus à la texture.
+
+Base de Thorn
+
+![image.png](15%20F%C3%A9vrier%202026/image%2011.png)
+
+![image.png](15%20F%C3%A9vrier%202026/image%2012.png)
+
+NOn uniform Blur Soften and Curves Texture.
+
+ça ajoute un côté arrondi sur les bords.
+
+Ajouter les pouru
+
+Perlin noise avec slope blur. très intéressant.
+
+![image.png](15%20F%C3%A9vrier%202026/image%2013.png)
+
+![image.png](15%20F%C3%A9vrier%202026/image%2014.png)
+
+Le concept de **softening** (adoucissement) dans Substance Designer est crucial pour obtenir des matériaux réalistes. Voici pourquoi :
+
+## **Le problème sans softening**
+
+Sans softening, les détails générés procéduralement ont tendance à être :
+
+- **Trop nets et trop "propres"** → aspect artificiel/"CG"
+- Avec des **arêtes trop dures** sur les heightmaps
+- Avec des **transitions abruptes** entre les différentes couches de détails
+
+Dans la réalité, presque aucune surface n'a d'arêtes parfaitement tranchantes — l'usure, l'érosion, la gravité et le temps adoucissent tout.
+
+NON UNIFORM BLUR
+
+![image.png](15%20F%C3%A9vrier%202026/image%2015.png)
+
+![image.png](15%20F%C3%A9vrier%202026/image%2016.png)
+
+![image.png](15%20F%C3%A9vrier%202026/image%2017.png)
+
+![image.png](15%20F%C3%A9vrier%202026/image%2018.png)
+
+[https://www.notion.so](https://www.notion.so)
+
+![image.png](15%20F%C3%A9vrier%202026/image%2019.png)
+
+"Je veux le résultat" → frustration → abandon ou précipitation → résultat médiocre → frustration
+
+"Je deviens quelqu'un qui aime le processus" → action régulière → progrès réels → confiance → encore plus d'action
+
+1. Passe de "avoir" à "être"
+❌ Ancien mode	✅ Nouveau mode
+"Je veux avoir un jeu fini"	"Je veux être quelqu'un qui crée chaque jour"
+"Je veux avoir du succès"	"Je veux être quelqu'un de discipliné"
+"Je veux avoir des résultats"	"Je veux être quelqu'un qui s'améliore"
+
+On est à 29 min
+
+1 humain + AI stack = orchestrateur de complexité Tier S
+Le bottleneck n'est plus la compétence technique
+Le bottleneck devient : LA VISION
+On a des outils Tier S utilisés pour des idées Tier D.
+Unreal Engine 5          → utilisé pour → encore un shooter
+Substance Designer       → utilisé pour → encore une texture de mur
+AI générative            → utilisé pour → encore une image de chat anime
+
+Créer des exercices d'expérience numérique via Unreal Engine pour faire en sorte de parler de ces domaines, certes sans se spécialiser on ira nul part mais ça peut être intéressant.
+🧬 Biologie          → systèmes vivants, croissance organique
+🏛️ Architecture      → espaces habitables, réels ou virtuels
+🎵 Musique           → environnements sonores vivants
+🌊 Physique          → simulation de matière, fluides, lumière
+📖 Narration         → mondes qui racontent sans mots
+🧠 Neurosciences     → espaces qui affectent l'état mental
+🌿 Écologie          → écosystèmes qui s'auto-régulent
+📐 Mathématiques     → géométries impossibles, fractales, topologie
+💡 Philosophie       → des œuvres qui posent des questions
+
+Exemple de cette vision :
+TeamLab (Tokyo)
+Minecraft
+Démonstrations Unreal 5 (Black Myth, FFVII, Nanite ...)
+
+Le profil qui va changer le monde
+Ce ne sera pas un programmeur.
+Ce ne sera pas un artiste.
+Ce ne sera pas un architecte.
+Ce ne sera pas un scientifique.
+
+"Je ne sais pas comment y parvenir" C'est l'opposé qui est intéressant comme le mystère.
+
+Personne ne le sait encore. Et c'est exactement pour ça que c'est intéressant. Les gens qui savent exactement comment faire font des choses qui existent déjà.
+
+Compétences Importantes.
+
+✅ Programmation         (logiciel)
+✅ Game design           (discipline unique au JV)
+✅ Écriture / Narration  (littérature)
+✅ Modélisation 3D       (sculpture)
+✅ Texturing             (peinture)
+✅ Animation             (cinéma d'animation)
+✅ Composition musicale  (musique)
+✅ Sound design          (cinéma)
+✅ Voice acting          (théâtre)
+✅ UI/UX design          (design)
+✅ Level design          (architecture)
+✅ VFX                   (cinéma)
+✅ Networking            (ingénierie)
+✅ QA Testing            (ingénierie)
+✅ Optimisation          (ingénierie)
+✅ Direction artistique  (beaux-arts)
+
+Layers
+
+![image.png](15%20F%C3%A9vrier%202026/image%2020.png)
+
+- [ ]  Continuer Substance Designer.
+1. **Cliquez sur le fond vide** du graph (désélectionnez tout)
+2. Dans le panneau **Properties** (en bas à droite), trouvez la section **`Base Parameters`**
+3. Modifiez **`Output Size`** → passez de **`2048 × 2048`** à **`4096 × 4096`**
