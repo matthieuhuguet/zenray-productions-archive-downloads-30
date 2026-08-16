@@ -1,0 +1,180 @@
+# prompt_engineering
+
+Created: May 30, 2025 12:21 PM
+
+Voici la **liste officielle** des **19 Prompt Engineering Patterns** que tu as **mémorisés** (à jour, sans le Canvas T-C-R-E-I), chacun accompagné d'une **phrase explicative concise** :
+
+---
+
+### 🧠 **1. Persona Pattern**
+
+Attribue un rôle précis à l’IA pour cadrer la réponse.
+
+> Ex : « Tu es un expert Unreal Engine chez Epic. »
+> 
+
+---
+
+### 🎮 **2. Gameplay Pattern**
+
+Transforme la tâche en jeu ou défi pour la rendre engageante.
+
+> Ex : « Donne-moi 3 niveaux de challenge progressif. »
+> 
+
+---
+
+### 🔁 **3. Flipped Interaction Pattern**
+
+L’IA pose des questions avant d’agir pour mieux cerner le besoin.
+
+> Ex : « Avant de répondre, quelles 3 infos dois-je te demander ? »
+> 
+
+---
+
+### ✍️ **4. Question Refinement Pattern**
+
+L’IA reformule la question pour en améliorer la précision ou l’utilité.
+
+> Ex : « Propose une version optimisée de ma question. »
+> 
+
+---
+
+### 🧹 **5. Simplify Pattern**
+
+Oblige à simplifier radicalement et à expliquer étape par étape.
+
+> Ex : « Explique-moi ça comme à un enfant de 10 ans, en 3 étapes. »
+> 
+
+---
+
+### 🔢 **6. Few-Shot Prompting Pattern**
+
+Fournit 2–3 exemples pour guider la structure ou le ton attendu.
+
+> Ex : Exemple A → Réponse A ; Exemple B → Réponse B ; Nouvelle Question → ?
+> 
+
+---
+
+### 🛠️ **7. Few-Shot Action Pattern**
+
+Comme Few-Shot, mais centré sur **décisions ou actions concrètes**.
+
+> Ex : « Voici deux cas et leurs actions. Quelle serait la suivante ? »
+> 
+
+---
+
+### 🧠 **8. Intermediate-Steps Few-Shot Pattern**
+
+Ajoute des étapes intermédiaires pour montrer un raisonnement.
+
+> Ex : Input → Étape 1 → Étape 2 → Output.
+> 
+
+---
+
+### 🔀 **9. Alternative Approaches Pattern**
+
+Propose plusieurs solutions, les compare, puis recommande la meilleure.
+
+> Ex : « Donne-moi 3 stratégies, puis dis laquelle est la plus adaptée. »
+> 
+
+---
+
+### 🔤 **10. Meta-Language Creation Pattern**
+
+Crée une syntaxe personnalisée pour rendre les prompts plus clairs ou courts.
+
+> Ex : « Définis une notation perso pour mes briefs artistiques. »
+> 
+
+---
+
+### 🧼 **11. Semantic Filter Pattern**
+
+Filtre ou retire des éléments selon leur contenu sémantique.
+
+> Ex : « Supprime toutes les parties subjectives ou vagues. »
+> 
+
+---
+
+### 🤔 **12. Ask-for-Input Pattern**
+
+Force l’IA à demander des données avant de répondre.
+
+> Ex : « Avant de générer, demande le format de sortie. »
+> 
+
+---
+
+### 🔚 **13. Tail Generation Pattern**
+
+À la fin, propose la **prochaine étape logique** (effet de boucle).
+
+> Ex : « Souhaites-tu que je t’aide maintenant à coder ça ? »
+> 
+
+---
+
+### 🔗 **14. Combining Patterns**
+
+Combine plusieurs patterns pour des prompts plus puissants.
+
+> Ex : Persona + Few-Shot + Chain-of-Thought combinés dans un seul prompt.
+> 
+
+---
+
+### 🧾 **15. Recipe Pattern**
+
+Donne un objectif + quelques étapes connues → l’IA complète tout.
+
+> Ex : « Objectif : créer un site. Étape 1 et 2 connues. Complète le reste. »
+> 
+
+---
+
+### 📋 **16. Template Pattern**
+
+L’IA remplit un modèle précis (structure figée avec placeholders).
+
+> Ex : « Complète ce template :  <Étapes>  »
+> 
+
+---
+
+### 🧠 **17. Chain-of-Thought Pattern**
+
+L’IA détaille son raisonnement **étape par étape** avant la réponse.
+
+> Ex : « Think step-by-step : 1. Analyse, 2. Raisonnement, 3. Réponse. »
+> 
+
+---
+
+### 🔄 **18. ReAct Pattern**
+
+Mixe **raisonnement** + **actions concrètes** (recherche, calcul, outil…).
+
+> Ex : « Réfléchis → Agis → Vérifie → Conclus. »
+> 
+
+---
+
+### ✅ **19. Fact Checklist Pattern**
+
+Liste les faits clés à valider, évalue leur fiabilité, et boucle jusqu’à clarté.
+
+> Ex : « Fait A = doute → revalider avant de conclure. »
+> 
+
+---
+
+Souhaites-tu un **PDF/tableau Notion/affiche Miro** pour les visualiser plus facilement ?
