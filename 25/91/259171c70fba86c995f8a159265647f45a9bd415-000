@@ -1,0 +1,51 @@
+# BackUp Data
+
+C'est très clair, on annule l'histoire du Mac pour l'instant. Le but est de créer un **"Aspirateur Absolu"** qui va faire un état des lieux de ce qui a déjà été copié, puis utiliser PowerShell et robocopy pour sécuriser **100% de ta vie numérique** du disque C: vers ton disque F:, sans que tu ne lèves le petit doigt.
+
+Voici le prompt parfait à copier-coller dans Claude Code sur ton PC Windows actuel :
+
+---
+
+`Salut Claude, je suis matth. Objectif critique et unique : finaliser l'archivage ABSOLU et à 100% de mon environnement de travail depuis mon disque C: vers mon disque de backup F:.
+
+RÈGLE D'OR : Je suis l'homme le plus paresseux de la terre. Il est strictement INACCEPTABLE de me demander de vérifier un chemin, de faire une action manuelle ou de cliquer quelque part. Tu es un agent autonome. Analyse, génère les scripts PowerShell, et exécute-les toi-même.
+
+CONTEXTE :
+- Source : Mon disque système `C:\Users\matth\` et les dossiers vitaux de `C:\ProgramData\`.
+- Destination : `F:\Backup_C_2026-04-10\`.
+- État actuel : Une copie a déjà été partiellement commencée dans ce dossier F:. 
+
+MISSION : L'ASPIRATEUR 100%
+Étape 1 - Analyse de l'existant :
+Fais une analyse via PowerShell de `F:\Backup_C_2026-04-10\` pour voir ce qui s'y trouve déjà. Compare avec `C:\Users\matth\` et `C:\ProgramData\` pour identifier le delta restant.
+
+Étape 2 - Configuration du Robocopy Ultime :
+Prépare un script PowerShell utilisant `robocopy` avec les arguments de performance et de résilience optimaux (`/E`, `/ZB`, `/COPY:DAT`, `/DCOPY:DAT`, `/XJ`, `/MT:16`, `/R:1`, `/W:1`).
+
+Ce backup doit attraper 100% de MA data, sans exception :
+- TOUT le dossier `Downloads` (installeurs, licences, etc.).
+- TOUT le dossier `Pictures`, en particulier `Pictures\Screenshots`.
+- TOUS les médias, documents de travail, projets 3D.
+- TOUS les secrets à la racine du User (`.ssh`, `.gitconfig`, `.mcp-auth`, etc.).
+- TOUT mon `AppData\Roaming` et `AppData\Local` (absolument vital pour sauvegarder mes configs Chrome, Cursor, Claude, SideFX, Autodesk, etc.).
+- Les dossiers critiques de `C:\ProgramData\` (notamment Epic\VaultCache pour Unreal, et les licences).
+
+EXCLUSIONS INTELLIGENTES (Pour ne pas faire crasher le backup) :
+Même si je veux 100% de MA data, tu dois exclure de la copie les poubelles Windows qui bloquent Robocopy : `AppData\Local\Temp`, `AppData\Local\Packages`, les `Cache` des navigateurs, `npm-cache`, `GLCache`, les fichiers `pagefile.sys` / `hiberfil.sys`, et le sous-dossier inutile `Downloads\.git`.
+
+Étape 3 - Exécution :
+Ne me fais PAS de long résumé.
+1. Affiche-moi juste les commandes Robocopy que tu as générées pour valider les exclusions.
+2. Attends mon unique "GO".
+3. Lance le script PowerShell silencieusement en background et donne-moi le log de fin quand 100% de mon PC est archivé sur F:. Au travail.`
+
+---
+
+### 💡 **Pourquoi ce prompt est infaillible :**
+
+1. **L'analyse du Delta** : Il va d'abord scanner F: pour voir ce qui a déjà été copié et ne pas tout recommencer de zéro, robocopy va juste combler les trous.
+2. **Flags Robocopy Ultra-Performants** :
+    - /MT:16 : Copie en multithreading (16 fichiers en même temps, hyper rapide).
+    - /XJ : Ignore les jonctions (essentiel sur Windows pour ne pas créer de boucle infinie dans AppData).
+    - /ZB : Mode redémarrage/sauvegarde pour forcer la copie même si un fichier est verrouillé.
+3. **Le filtre 100% Data / 0% Poubelle** : Il chope tes screenshots, tes downloads, toutes tes configs, mais je lui ai ordonné d'exclure les fichiers systèmes inutiles (Temp, Cache) qui font généralement planter ou ralentir un backup complet.
