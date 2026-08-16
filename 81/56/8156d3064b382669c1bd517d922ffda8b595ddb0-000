@@ -1,0 +1,243 @@
+# 11 Février 2026
+
+Création de blueprint done ! exceptionnel ! fix des guids
+
+![image.png](11%20F%C3%A9vrier%202026/image.png)
+
+Faudrait juste mettre le plugins en .md.
+
+- [ ]  Ghost of yotei le jeu est magnifique bel expérience on  sourit mais niveau gameplay ce n’est pas très satisfaisant je trouve il y a un vrai manque de prise de risque.
+- [ ]  Le gros boulot à faire maintenant c’est le texturing tu ne peux pas faire l’abstraction.
+- [ ]  Javier Perez MasterClass In SurfaceTexturing.
+
+[Javier Perez Masterclass. Faut que je regarde ça le matin … ](11%20F%C3%A9vrier%202026/Javier%20Perez%20Masterclass%20Faut%20que%20je%20regarde%20%C3%A7a%20le%20304d4ee179c380be848eec2c71c33637.md)
+
+ça peut aller très vite …
+
+![image.png](11%20F%C3%A9vrier%202026/image%201.png)
+
+Le plugin a encore des erreurs mais du coup ce qu’on veut c’est faire en sorte d’avoir un plugin complet mappé sur L’API python et les classes C++
+
+| **Nom dans l'Éditeur** | **Classe C++ (Runtime/Editor)** | **Classe Python (unreal.*)** |
+| --- | --- | --- |
+| **Animation Blueprint** | `UAnimBlueprint` | `unreal.AnimBlueprint` |
+| **Blueprint Class** | `UBlueprint` | `unreal.Blueprint` |
+| **Level** | `UWorld` / `ULevel` | `unreal.World` / `unreal.Level` |
+| **Level Sequence** | `ULevelSequence` | `unreal.LevelSequence` |
+| **Material** | `UMaterial` | `unreal.Material` |
+| **Niagara System** | `UNiagaraSystem` | `unreal.NiagaraSystem` |
+| **Artificial Intelligence** | `UBehaviorTree` | `unreal.BehaviorTree` |
+| **Audio** | `USoundCue` / `USoundWave` | `unreal.SoundCue` / `unreal.SoundWave` |
+| **Cinematics** | `ACineCameraActor` | `unreal.CineCameraActor` |
+| **Editor Utilities** | `UEditorUtilityWidget` | `unreal.EditorUtilityWidget` |
+| **Foliage** | `UInstancedFoliageSettings` | `unreal.InstancedFoliageSettings` |
+| **Input** | `UInputMappingContext` | `unreal.InputMappingContext` |
+| **Live Link** | `ULiveLinkPreset` | `unreal.LiveLinkPreset` |
+| **Media** | `UMediaPlayer` | `unreal.MediaPlayer` |
+| **Paper2D** | `UPaperSprite` | `unreal.PaperSprite` |
+| **PCG** | `UPCGGraph` | `unreal.PCGGraph` |
+| **Physics** | `UPhysicsAsset` | `unreal.PhysicsAsset` |
+| **Texture** | `UTexture2D` | `unreal.Texture2D` |
+| **User Interface** | `UWidgetBlueprint` | `unreal.WidgetBlueprint` |
+| **World** | `UWorldSettings` | `unreal.WorldSettings` |
+
+## **✅ UnrealMCP Plugin Update — Complete**
+
+### **What was done:**
+
+**C++ Plugin (19 new command handlers):**
+
+- **Blueprint Variables** (3): `add_blueprint_variable`, `set_blueprint_variable_default`, `get_blueprint_variables`
+- **Blueprint Graph Editing** (9): `add_blueprint_function`, `add_blueprint_custom_event`, `add_variable_get_node`, `add_variable_set_node`, `connect_blueprint_nodes`, `disconnect_blueprint_pins`, `delete_blueprint_node`, `get_blueprint_graph_nodes`, `compile_blueprint`
+- **Material Expressions** (5): `create_material_expression`, `connect_material_expressions`, `connect_material_to_property`, `delete_material_expression`, `get_material_expressions`
+- **Material Instances** (3): `create_material_instance`, `set_material_instance_parameter`, `get_material_instance_parameters`
+- **Utilities**: `StringToEdGraphPinType`, `FindNodeByGuid`, `FindGraphByName`
+
+**Python MCP Tools (17 new):**
+
+- 12 new blueprint tools in `commands_blueprints.py`
+- 8 new material tools in `commands_materials.py` (+ 3 existing updated)
+
+**Compilation:**
+
+- Fixed 5 UE 5.7 API compatibility issues (`ANY_PACKAGE` → `FindFirstObject`, `GetInputsView` deprecation, getter return values, `FString→FName` conversion)
+- Both **MCPProject** and **TestUnrealMCP** compiled successfully ✅
+
+**Deployed to:** `E:\Create\Build\DCC\UE\UE_5.7\Engine\Plugins\Marketplace\UnrealMCP\`
+
+Tu peux maintenant rouvrir l'éditeur UE — le plugin compilé est prêt avec l'API complète Blueprint + Material !
+
+"E:\Create\Build\DCC\UE\UE_5.7\Engine\Plugins\Marketplace\UnrealMCP" c'est normal qu'il soit relativement faible en taille 71 mb ?
+
+Bonne question ! Vérifions ce qu'il y a dedans et comparons avec ce qu'on attend :
+
+Ran 2 commands
+
+Show more
+
+Show more
+
+Voilà l'explication — **71 MB c'est tout à fait normal** pour un plugin C++ UE :
+
+| **Fichier** | **Taille** | **Description** |
+| --- | --- | --- |
+| `.pdb` (debug symbols) | **61 MB** | 85% du total — fichier de débogage Visual Studio |
+| `.dll` (le vrai plugin) | **509 KB** | Le plugin compilé lui-même |
+| `Intermediate/` | **10 MB** | Fichiers objets de compilation (.obj) |
+| `Source/` | **305 KB** | Nos fichiers C++ (~4600 lignes) |
+
+C'est le `.pdb` qui prend toute la place. C'est le fichier de symboles de debug — il est toujours énorme car il contient toute la table de correspondance code/debug pour UE. Un plugin UE typique fait exactement cette taille.
+
+**Par contre**, je remarque que les binaires datent du **9 février** (pas d'aujourd'hui) ! La compilation d'aujourd'hui a mis à jour les binaires dans le dossier **MCPProject**, pas directement dans le Marketplace. Vérifions :
+
+Check MCPProject binaries dates
+
+Show more
+
+Effectivement ! Les binaires compilés d'aujourd'hui (16:29) sont dans **MCPProject** — la DLL a grossi de 509KB → **705KB** (logique avec les 20 nouveaux handlers). Il faut copier ces binaires vers le Marketplace pour que TestUnrealMCP les utilise :
+
+Ran 2 commands
+
+Show more
+
+Voilà, maintenant tout est synchronisé. Les binaires datent du **11 février 16:46**.
+
+**Résumé :** 71 MB c'est normal — c'est le `.pdb` (symboles de debug) qui fait 63 MB à lui seul. La DLL du plugin fait seulement **705 KB**. Et j'ai corrigé un oubli : les binaires compilés n'avaient pas été copiés vers le dossier Marketplace — c'est fait maintenant. Quand tu rouvriras l'éditeur, il chargera la nouvelle version avec tous les 20 nouveaux handlers.
+
+Objectif : Créer un Blueprint avec le Stool qui tourne.
+
+3 blocages
+Le bridge Python n'exposait pas les commandes Blueprint → le fichier commands_blueprints.py n'existait pas. Créé.
+
+L'API Python UE5 ne permet pas d'ajouter des composants à un Blueprint → le SimpleConstructionScript (SCS) n'est pas exposé en Python. C'est lui qui gère les composants visibles dans l'éditeur BP. Contourné via SubobjectDataSubsystem.add_new_subobject().
+
+Les nouveaux handlers C++ compilés n'étaient pas chargés → UE avait démarré avec l'ancien DLL avant la compilation. Le protocole TCP utilisait aussi "type" et non "command". Corrigé, et les handlers seront actifs au prochain redémarrage UE.
+
+Résultat
+BP_RotatingStool créé avec StaticMeshComponent (Stool) + RotatingMovementComponent (60°/s). Fonctionne au Play.
+
+Créer un plugins MCP Substance Designer !
+
+Je pense que je vais arrêter dragon quest j’ai vu la core loop et il ne reste pas grand chose d’intéressant je trouve…
+
+Il me faut des assets organic.
+
+Créer une disposition simple … via PCG sur unreal.
+
+Attention Cursor est 9879 et Claude 9878
+
+Enfait le pcg n’a même plus vraiment de sens 
+
+Ce qui a du sens ? **le texturing et le mesh organic**. et encore il y a beaucoup d’assets déjà produit.
+
+# From Game to Img To Mesh To Unreal
+
+Et ce qui est dingue c’est le placement même directement sans 
+
+I want this asset on dark background [Exact Asset disposition] Then Upres 4K. Form Grey models like in 3D engine (Blender/Maya).
+
+![Screenshot (267).jpg](11%20F%C3%A9vrier%202026/Screenshot_(267).jpg)
+
+![Capture d'écran 2026-02-11 125550.png](11%20F%C3%A9vrier%202026/Capture_dcran_2026-02-11_125550.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%202.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%203.png)
+
+Enhancing it !
+
+Enhancing Again !
+
+![image.png](11%20F%C3%A9vrier%202026/image%204.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%205.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%206.png)
+
+Enhancing again.
+
+![Capture d'écran 2026-02-11 135701 (Large).png](11%20F%C3%A9vrier%202026/Capture_dcran_2026-02-11_135701_(Large).png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%207.png)
+
+---
+
+- [ ]  Dragon Quest VII
+- [ ]  Nioh 3
+- [ ]  
+
+[Black Myth: Zhong Kui - 6 Min In-Engine Chinese New Year Special | PS5 Games](https://www.youtube.com/watch?v=b2Xyl-OW1DM)
+
+Exceptionnal.
+
+---
+
+Sélectionner des assets sans les reproduire méthod kitbash et 
+
+Pour les instancier dans une scène … Puis améliorer … lighting / vfx.
+
+ça semble plus intéressant pour faire des environnements puissants avec la puissance de Claude.
+
+- [x]  Stylet pour Zbrush
+
+- [x]  Blender MCP
+
+![image.png](11%20F%C3%A9vrier%202026/image%208.png)
+
+- [x]  C’est quoi uv ?
+
+[ClaudeCode vs ClaudeDesktop Files](11%20F%C3%A9vrier%202026/ClaudeCode%20vs%20ClaudeDesktop%20Files%20304d4ee179c380718047f721818630ba.md)
+
+[**uv** est un **gestionnaire de projets et de paquets Python**, écrit en Rust, qui regroupe en un seul outil rapide l'installation de Python, la gestion des environnements virtuels, la résolution et l'installation des dépendances, et le verrouillage reproductible — remplaçant ainsi toute une chaîne d'outils historiquement séparés (**`pip`**, **`virtualenv`**, **`pyenv`**, **`pip-tools`**…).
+
+](11%20F%C3%A9vrier%202026/uv%20est%20un%20gestionnaire%20de%20projets%20et%20de%20paquets%20Py%20304d4ee179c380e08b89f6d54b584234.md)
+
+- [ ]  Texturing via Javier Perez
+- [ ]  Test Blender MCP VS Houdini
+- [ ]  ça marche niquel et la geo est propre. Après faudrait fine tune mais bon wtf !!!
+
+![image.png](11%20F%C3%A9vrier%202026/image%209.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%2010.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%2011.png)
+
+- [ ]  Test Blender MCP sur Génération Procédural … Au Final Houdini = Weak ? …
+
+Blender = Nouveau Roi de la 3D ? pour l’instant ça reste très low poly donc dégueulasse mais who knows. En edge du coup blender pourrait vraiment tirer son épingle du jeu et reste les solutions organiques qui nécessite blender ou assemblage kitbash de forme déjà existantes … puis composition …
+
+![image.png](11%20F%C3%A9vrier%202026/image%2012.png)
+
+Test V1 sur l’asset ⇒ Résultat trop low poly.
+
+Pour la gen procédural partir sur un seul rocher puis le duppliquer.
+
+Faire attention à faire tout d’un coup quelque chose qui doit déjà être précis.
+
+Mais en soit oui ce qui compte c’est l’assemblage pas le fait de créer les assets je pense…
+
+Aller dans Unreal Directement ?
+
+Pour Disposer les assets proprements.
+
+![Rock01.png](11%20F%C3%A9vrier%202026/Rock01.png)
+
+![3c3a2887-d672-4175-bd4d-8bc5a0647952.jpg](11%20F%C3%A9vrier%202026/3c3a2887-d672-4175-bd4d-8bc5a0647952.jpg)
+
+![image.png](11%20F%C3%A9vrier%202026/image%2013.png)
+
+![image.png](11%20F%C3%A9vrier%202026/image%2014.png)
+
+- [ ]  Dragon Quest …
+
+BLENDER MCP ET PASSE AU PUTAIN DE TEXTURING ET PRENDS LE TROISIEME CLAUDE CODE. mais chill
+
+TEXTURING. Designer et Substance conférence de javier perez. aprem sport.
+
+Render et Texturing puis scattering avec claude …
+
+Focus only texturing. comprendre l’atome.
+
+en fait au final je fais du houdini pour faire des environnements style playstation c’est bête je devrai faire peut être blender et zbrush …
+
+![image.png](11%20F%C3%A9vrier%202026/image%2015.png)
