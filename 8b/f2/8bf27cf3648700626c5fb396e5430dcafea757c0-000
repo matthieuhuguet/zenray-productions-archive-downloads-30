@@ -1,0 +1,27 @@
+# Louisiana Bayou Modeling
+
+Fin de la modélisation du volet
+
+![image.png](Louisiana%20Bayou%20Modeling/image.png)
+
+Turn avec $ZMAX $XMIN ou autre pareil que le match size.
+
+![image.png](Louisiana%20Bayou%20Modeling/image%201.png)
+
+Volet.
+
+![image.png](Louisiana%20Bayou%20Modeling/image%202.png)
+
+Attention à bien mettre Convex Hull en 2D sinon ça ne marche pas.
+
+![image.png](Louisiana%20Bayou%20Modeling/image%203.png)
+
+Convex Hull et PolyExpand Fonctionne bien pour draw des faces à partir de points ou de courbes.
+
+![image.png](Louisiana%20Bayou%20Modeling/image%204.png)
+
+![image.png](Louisiana%20Bayou%20Modeling/image%205.png)
+
+![image.png](Louisiana%20Bayou%20Modeling/image%206.png)
+
+Ajouter directement une curve sur un tracé !
