@@ -1,0 +1,155 @@
+# 14 Février 2026
+
+https://youtu.be/r-o-oH13mFE?si=FjwVLixQcshN2c2J&t=1583 1/4 BRAVO
+
+Color Random qui permet de mieux merge et créer une hierarchie
+
+C'est crucial pour le Height map. Si tous les blocs sont du même gris, le résultat sera plat.
+
+- Allez dans la section **Color** (en bas des propriétés).
+- Augmentez le **Color Random** (ou *Luminance Random*). Cela va donner des niveaux de gris différents à chaque bloc. Comme le mode de fusion du Sampler est souvent sur "Max" (Max Lighten), les blocs plus clairs (plus hauts) "mangeront" les blocs plus sombres (plus bas), créant cet effet d'empilement naturel.
+
+![image.png](14%20F%C3%A9vrier%202026/image.png)
+
+Tiling Variations
+
+![image.png](14%20F%C3%A9vrier%202026/image%201.png)
+
+Ajouter du mouvement au polygon shape de base avec un gradient …
+
+Slope Blur Grayscale intéressant cette node ça combine un directionnal noise et un blur.
+
+![image.png](14%20F%C3%A9vrier%202026/image%202.png)
+
+10 Nodes à retenir absolument
+
+Blend
+
+Levels
+
+Transform2D
+
+Shape
+
+Tile Sampler
+
+Cloud / Perlin Noise
+
+Warp / Directionnal Noise
+
+Bevel
+
+Gradient Map
+
+Utilizing the Albedo Work !
+
+Make or Break the Materials
+
+Dictate how it react to the lighting, correct roughness response.
+
+![image.png](14%20F%C3%A9vrier%202026/image%203.png)
+
+Albedo Creation.
+
+![image.png](14%20F%C3%A9vrier%202026/image%204.png)
+
+REUSABILITY AND SCALABILITY
+
+Organic Cracks don’t redo everything use existing graph
+
+Don’t create everything from scratch, don’t act like you have to reinvent the wheel, use the wheel to create stunning renders.
+
+![image.png](14%20F%C3%A9vrier%202026/image%205.png)
+
+Edge Detect 
+
+![image.png](14%20F%C3%A9vrier%202026/image%206.png)
+
+Directionnal Warp
+
+Break the monotomy
+
+Manipulate Looking for uniqueness.
+
+![image.png](14%20F%C3%A9vrier%202026/image%207.png)
+
+Avoir un feedback
+
+height is the most important.
+
+![image.png](14%20F%C3%A9vrier%202026/image%208.png)
+
+![image.png](14%20F%C3%A9vrier%202026/image%209.png)
+
+Large to small shapes. heightmaps most important 
+
+then normal
+
+Albedo / Roughness Last
+
+![image.png](14%20F%C3%A9vrier%202026/image%2010.png)
+
+![image.png](14%20F%C3%A9vrier%202026/image%2011.png)
+
+Faut que j’arrête de prendre des nodes et juste que je fasse des trucs.
+
+Le credo on est de vrai entrepreneur on va pas s’arreter est assez positif 2026 
+
+Tu vas pas te coucher tant que Substance Designer est pas maitrisé
+
+En fait si je devais donner une direction ce serait créer des produits digitaux pour tout les avantages que ça importe, d’où intérêt du texturing et apprentissage de la 3D
+
+créer un seul truc et être focus dessus, uniquement. 
+
+Je vais essa
+
+il est 16 h
+
+La vrai question c’est pas de quoi tu veux te c’est plutôt qu’est ce que tu veux faire.
+
+---
+
+- [ ]  Regarder la conf Substance Designer en entier.
+- [ ]  Designer en temps réel une texture. Puis upload sur mon site web l’asset créé. Désormais considérer l’AI. Savoir quoi vendre.
+- [ ]  Publier le site web.
+
+- [x]  Dragon Quest VII : si c’est vraiment éclaté je uninstall LA MUSIQUE BOUCLE LE JEU N’est pas terrible. D’autres oeuvres mérite mon attention notamment mon portfolio.
+- [ ]  Ghost of Tsushima Last Chance si c’est vraiment éclaté je uninstall
+- [x]  FIN DE QVEMA fin et plus jamais je regarde ce truc, mais c’est intéressant pour business logic et montage relativement classique mais efficace (shark tank logic).
+
+- [ ]  Se mettre dans un état d’esprit de concquérant : sport / japon / création de valeur pour vendre.
+- [ ]  Finir livre sur la vente hormozi Comprendre un peu mieux la réalité. Notamment mon côté je veux créer un jeu mais au final je ne l’ai toujours pas fait donc bon un peu à côté de la plaque …
+- [ ]  Go Sport.
+
+---
+
+Tu repousses l’apprentissage mais il va falloir apprendre !!!
+
+[Mastering Texture Creation in Substance Designer: Aging Organic Surfaces with Javier Perez](https://youtu.be/r-o-oH13mFE?si=cfcRPTXLxASr0qc_)
+
+J’ai absolument besoin de mettre live mon site web et pour ça j’ai absolument besoin de finir une pièce d’environnement et une pièce de texturing, allez là il faut vraiment se réveiller.
+
+https://www.youtube.com/watch?v=o4kdCF5cMR0
+
+Le repos poussent t’il à la création ? je sais pas
+
+QVEMA et Vanitas dans tous les cas. Jujutsu Kaisen. 
+
+Le problème c’est qu’à terme ma boucle actuelle est trop lente pour être compatible avec le monde, je prends j’observe je change, mais le rythme est beaucoup trop lent et je ne me base pas sur les acquis précédents. Il y a un problème d’itération et un manque de cap global.
+
+Non la question c’est si l’AI remplace les devs mais en fait c’est un non sens majeurs car l’AI est toujours rien qu’un outil. C’est juste les pessimistes de linkedin qui raccontent de la merde. 
+
+Après comment je me rends responsable pour aller à tokyo.
+
+Faisons le bilan.
+
+Qu’est ce qu’on a apris, qu’est ce qu’il faut encore apprendre, qu’est ce que je veux faire quel est l’état de la situation ?
+
+Pour débloquer les choses il faut faire de la prospection. Pour faire de la prospection il faut avoir de quoi vendre quelque chose aux autres donc avoir une preuve social d’un succès : Instagram / YouTube / Linkedin
+
+La question c’est qu’est ce que je veux racconter ?
+
+Quels sont mes projets en cours : 
+
+1. Toki Pavillion : grass ghost of tsushima
+2. Website.
