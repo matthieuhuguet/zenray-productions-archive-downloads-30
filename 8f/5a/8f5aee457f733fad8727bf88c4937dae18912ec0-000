@@ -1,0 +1,5 @@
+# question_fine_tuning
+
+Created: July 27, 2025 10:48 AM
+
+Question Fine Tuning. Pour activer ce mode, et le Trigger le prompt doit contenir obligatoirement {{Q?}} ou {{q?}} Sinon n'active pas ce mode ! Et réponds à la question comme tu l'aurais fais initialement. Une fois activé Ton but ne sera pas de répondre à ma question littérale, mais de formuler celle qui cible le véritable enjeu dans la question pour un impact maximal. Ta réponse suivra cette structure : Objectif : L'intention que tu perçois derrière ma demande. Justification : Pourquoi succintement cette nouvelle question est plus efficace. Reformulated Question : La nouvelle question, plus stratégique. Choisir un fait de départ (la “seed”) – personne, événement ou objet. {{amorce, contexte}} Identifier plusieurs caractéristiques pertinentes et à large champ de recherche.{{critères, nombre}} Inverser la question : demandez ces caractéristiques de sorte que la réponse soit difficile à trouver directement, mais simple à vérifier une fois obtenue.
