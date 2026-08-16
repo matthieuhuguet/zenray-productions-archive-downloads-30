@@ -1,0 +1,41 @@
+# Pipeline de production 3D en détails
+
+Date: November 27, 2024
+Edited: November 27, 2024 12:07 PM
+
+### **1. Priorisation des assets**
+
+- **Sélectionnez les assets clés** : Identifiez les éléments les plus importants de votre environnement qui auront le plus d'impact visuel. Cela peut être un bâtiment central, un élément de végétation unique ou tout autre objet central.
+
+### **2. Modélisation détaillée**
+
+- **Affinage dans Maya** : Utilisez vos blockouts comme base pour ajouter des détails supplémentaires. Étant donné le style réaliste, concentrez-vous sur la précision des formes et des proportions.
+- **Utilisation de ZBrush pour les détails organiques** : Pour les éléments comme la végétation ou les ornements architecturaux, importez vos modèles dans ZBrush pour sculpter des détails fins.
+
+### **3. Dépliage UV**
+
+- **Création des UVs dans Maya** : Assurez-vous que vos UVs sont correctement dépliés pour éviter les étirements ou les chevauchements. Une bonne disposition des UVs facilitera le texturing par la suite.
+
+### **4. Baking des textures**
+
+- **Préparation des modèles** : Exportez vos modèles high-poly (de ZBrush) et low-poly (de Maya).
+- **Baking dans Substance Painter** : Importez les deux versions dans Substance Painter pour baker les maps nécessaires (normales, occlusion ambiante, courbure, etc.).
+
+### **5. Texturing**
+
+- **Utilisation de Substance Painter** : Profitez des smart materials et des smart masks pour accélérer le processus.
+- **Bibliothèque de matériaux** : Si vous manquez de temps, utilisez des matériaux existants de Substance Painter ou téléchargez des textures PBR gratuites en ligne.
+
+### **6. Exportation des textures**
+
+- **Paramètres d'exportation pour Unreal Engine** : Utilisez le preset d'exportation pour Unreal Engine dans Substance Painter pour assurer une compatibilité optimale.
+
+### **7. Intégration dans Unreal Engine**
+
+- **Importation des modèles et textures** : Importez vos assets dans Unreal et vérifiez que tout s'affiche correctement.
+- **Création des matériaux dans Unreal** : Configurez vos matériaux en utilisant les textures exportées.
+
+### **8. Ajustements finaux**
+
+- **Vérification en contexte** : Placez vos assets dans la scène pour voir comment ils s'intègrent avec le reste de l'environnement.
+- **Optimisation** : Si nécessaire, ajustez le niveau de détail ou les paramètres de texture pour améliorer les performances.
