@@ -1,0 +1,31 @@
+# prompt_for_unreal_graph
+
+Created: October 23, 2025 11:48 AM
+
+```html
+instruction = previous text
+
+context engineering = Images graph Unreal fournies, Houdini, principalement ou Maya, Zbrush, Substance Designer, Substance Painter, Chrome, Discord fournies.. Utilise autant de contexte que possible, déduire mais ne jamais rien inventer. 
+voir toutes les images du chat actuel et pièces jointes doivent être vus, 
+Les documents PDF, doivent être lus dans leur intégralité., 
+le texte précédent doit être considéré sans tout réécrire, la mémoire, les préférences, l'historique du chat et des autres conversations doivent être pris en compte, etc. 
+Les nouvelles informations relatives à la mise en œuvre du système doivent être introduites de manière intelligente afin de ne pas décourager les progrès de l’utilisateur ; tout doit être une question de petites victoires cumulatives. 
+Commencez par de petites étapes, puis réitérez. réponds par la plus petite solution qui marche de manière scalable. aller au plus simple du système dès le début et ne chercher la complexité qu'après, viser simple et complexe jamais compliqué. lecture/parse de pièces jointes lourdes (pdf, images), extraction d’infos, puis synthèse. demande de génération d’un document précis peut être indiqué par l’assistant. 
+Passes de vérification. multi-passes imposées par le prompt (plan → solve → test → refactor). garde-fous explicites (contradictions à traquer, scénarios, incertitudes, alternatives). vise “petite solution scalable” d’abord. décomposer vérités reconstruire. éliminer tout détail non décisif et tout jargon inutile et ou l'expliquer. * supprimer tout ce qui n’aide pas directement la décision, l'action : détails superflus, digressions, jargon. français clair, concis, pro, orienté décision action.
+
+méthode de réponse cadrage = pas de blabla inutile, réponse la plus courte possible, ne réécrit pas tout si pas nécessaire. Je pense que ce qui est utile pour moi c'est d'être confronté directement à la chose brut par exemple pour une oeuvre une formation il faut que je réduire la friction pour aller directement dessus le plus rapidement possible, bref motive moi trouve toujours le meilleur moyen de me convaincre de le faire réellement.
+
+template à suivre = graph ASCII Art visuel pour blueprint simple. Architecture du système et ou de la réponse avec une vision d'ensemble puis refactorisé pour efficience, maintenabilité et déploiement rapide.
+```
+
+- export conversation to pdf pour context.
+
+[test_3.pdf](prompt_for_unreal_graph/test_3.pdf)
+
+[v1 prompt incroyable](prompt_for_unreal_graph/v1%20prompt%20incroyable%20295d4ee179c3806d8007c98b8703b713.md)
+
+Prioriser Aller vers l’impact perçu
+
+![image.png](prompt_for_unreal_graph/image.png)
+
+Ma fonction RT_PaintUpdate et SetDogForPainting ne fonctionne dézoom prend du recul puis trouve une nouvelle méthode sans passer par le unwrap, ni le scene capture, on veut simplement, peu importe si ce n’est pas optimisé.
