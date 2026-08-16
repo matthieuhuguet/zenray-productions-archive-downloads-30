@@ -1,0 +1,53 @@
+# Modeling Louisiana Bayou 2
+
+Essayer d’utiliser le plus possible ground bounding / group by normal ou group expression pour une sélection : 
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image.png)
+
+Pas fan Fan des Curves. 
+
+Ensuite on va faire assemblage des fenetres.
+
+Parfait
+
+Recouper l’extérieur plus proprement. CLIP ?
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image%201.png)
+
+il faut différencier deux choses très importantes dans l'industrie (AAA) : J’ai testé et c’est 100% vrai parfait !
+
+1. **Le Clipping (Géométries qui se rentrent dedans) :** C'est **100% normal et utilisé partout**. Tes tuiles ont le droit de se rentrer les unes dans les autres, la texture et le moteur de rendu gèrent ça très bien.
+2. **Le Z-Fighting (Scintillement) :** Ça, c'est interdit. Ça n'arrive **QUE** si deux faces polygonales partagent *exactement* les mêmes coordonnées mathématiques (elles sont coplanaires).
+
+Architecture Dossier
+
+Project 
+
+Source
+
+Houdini
+
+References
+
+UnrealProject
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image%202.png)
+
+Roof ! Le bend ajoute énormément
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image%203.png)
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image%204.png)
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image%205.png)
+
+Edges vs Primitives.
+
+[Vex1.md](http://Vex1.md) ? Apprendre les bases du vex tranquillement.
+
+1. Regarde ta ligne tout en bas : elle commence au point **0** (à droite) et finit au point **19** (à gauche). Tu as donc **20 points par ligne** (ce qui correspond au nombre de *Columns* dans ton nœud grid2).
+2. Pour sélectionner une ligne complète et sauter la suivante, modifie le *Range Filter* de ton Group Range comme ceci :
+    - **Select : 20** *(Houdini va sélectionner les 20 premiers points, soit la Ligne 1 complète)*
+    - **of : 40** *(Le cycle total est de 2 lignes. Il sélectionne 20 points, et ignore les 20 suivants pour faire la Ligne 2)*
+
+![image.png](Modeling%20Louisiana%20Bayou%202/image%206.png)
