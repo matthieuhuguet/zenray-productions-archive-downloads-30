@@ -1,0 +1,26 @@
+# 18 Avril 2026
+
+**Pour avancer le bayou considérer un fichier de tracking ??? et à chaque projet ! meilleure idée du jour. Avancer progresser avec claude qui dit et décompose chaque tâche via le protocole : 20 50 80 %. cadrer trier fermer.**
+
+Dans le cadre ou on considère 2 fichier [Japanese1.md](http://Japanese1.md) et [Business1.md](http://Business1.md) on peut se demander si la création d’un jeu ne repose pas sur l’itération et la résolution de problème par conséquent l’AI type Claude nous permettrait alors de faire en sorte de résoudre les problématique de type comment faire en sorte d’avancer sur tel ou tel sujet? le bottleneck resterait alors l’animation ou alors l’AI serait capable de résoudre ce sujet ? comment on ferrait si le budget était illimité ? Base d’assets d’animation existant : motion capture de bonne qualité ? faire en sorte de créer des outils qui permettent d’avoir RIG humain et RIG faciaux combinés. Bref créer un workflow d’animations automatisables : Temps de construction ou reprise de ce qui existe déjà ? Il faut tester mais c’est quelque chose de compliqué. Au dela de ça il est dès lors possible de composer. Le but serait de créer un jeu ambition Demon’s Souls etc. Jeu éthéré avec un réel challenge.
+
+![image.png](18%20Avril%202026/image.png)
+
+![image.png](18%20Avril%202026/image%201.png)
+
+Le medium et high sont intéressants
+
+| Effort level | Score (%) |
+| --- | --- |
+| low | ~51.5 |
+| medium | ~57.5 |
+| high | ~65.5 |
+| xhigh | ~71 |
+| max | ~74.5 |
+
+| Transition | Gain score | Tokens supplémentaires | Efficacité |
+| --- | --- | --- | --- |
+| low → medium | +6 pts | +15k | **0.40 pt/k tokens** |
+| medium → high | +8 pts | +35k | 0.23 pt/k tokens |
+| high → xhigh | +5.5 pts | +25k | 0.22 pt/k tokens |
+| xhigh → max | +3.5 pts | +105k | 0.03 pt/k tokens |
