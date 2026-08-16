@@ -1,0 +1,1 @@
+# uv est un gestionnaire de projets et de paquets Python, écrit en Rust, qui regroupe en un seul outil rapide l'installation de Python, la gestion des environnements virtuels, la résolution et l'installation des dépendances, et le verrouillage reproductible — remplaçant ainsi toute une chaîne d'outils historiquement séparés (pip, virtualenv, pyenv, pip-tools…).
