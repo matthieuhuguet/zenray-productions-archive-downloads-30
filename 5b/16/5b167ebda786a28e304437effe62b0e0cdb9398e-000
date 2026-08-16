@@ -1,0 +1,24 @@
+ZenRay - Telechargement video
+=============================
+
+Cette video est stockee en morceaux (HLS). Le site NE reconstruit PAS la video.
+Ces scripts lancent ffmpeg sur TON ordinateur pour telecharger les morceaux,
+dechiffrer si besoin et creer un fichier Initial-D-S01E01.mkv dans ton dossier Telechargements.
+
+macOS :
+  Double-clique download.command
+  (si macOS bloque : clic droit > Ouvrir)
+
+Linux / macOS (terminal) :
+  bash download.sh
+
+Windows :
+  Clic droit download.ps1 > Executer avec PowerShell
+
+Si ffmpeg n'est pas installe :
+  macOS   : brew install ffmpeg
+  Linux   : apt install ffmpeg  (ou equivalent)
+  Windows : winget install Gyan.FFmpeg
+
+Important : le lien de telechargement expire le 2026-05-31T22:28:42.286Z.
+Passe ce delai, relance le bouton "Telecharger via script" sur le site.
