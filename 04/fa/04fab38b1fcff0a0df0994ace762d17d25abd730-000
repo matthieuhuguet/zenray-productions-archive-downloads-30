@@ -1,0 +1,7 @@
+# ClaudeCode vs ClaudeDesktop Files
+
+|  | **`\.claude\settings.json`** | **`\AppData\Roaming\Claude\claude_desktop_config.json`** |
+| --- | --- | --- |
+| **Produit** | **Claude Code** (l'outil CLI/terminal) | **Claude Desktop** (l'application de bureau) |
+| **Usage** | Tu l'utilises dans un terminal avec la commande **`claude`** | Tu l'utilises via l'app avec une fenêtre graphique |
+| **Typiquement** | Permissions, outils autorisés, MCP servers pour le CLI | MCP servers, préférences pour l'app desktop |
