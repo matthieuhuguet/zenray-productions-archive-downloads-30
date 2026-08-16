@@ -1,0 +1,13 @@
+# ZenRay - telechargement video via ffmpeg (Windows)
+$ErrorActionPreference = "Stop"
+$out = Join-Path $env:USERPROFILE ("Downloads\Initial-D-S01E01.mkv")
+if (-not (Get-Command ffmpeg.exe -ErrorAction SilentlyContinue)) {
+  Write-Host "ffmpeg est requis."
+  Write-Host "Installe-le avec : winget install Gyan.FFmpeg"
+  Read-Host "Appuie sur Entree pour fermer"
+  exit 1
+}
+ffmpeg -hide_banner -stats -i "http://localhost:3100/api/hls-cli?token=cGFnZXMvVmlkZW9zL0luaXRpYWwgRCBTMDFFMDEvSW5pdGlhbCBEIFMwMUUwMS5tcDQubWVkaWEuanNvbgoxNzgwMjY2NTIyMjg2.oW27oWV9ujQJGPA2fp-xzC3Z2cZKktx48E-cVaHmuoA" -map 0 -c copy "$out"
+Write-Host ""
+Write-Host "Termine. Fichier cree : $out"
+Read-Host "Appuie sur Entree pour fermer"
