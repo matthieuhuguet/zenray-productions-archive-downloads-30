@@ -1,0 +1,142 @@
+# 19 Avril 2026
+
+Remplacer Notion par Claude Code Software premium customisé vs standardisé …
+
+[Calendar1.md](http://Calendar.md) 
+
+Culture1.md
+
+Architecture 2D 3D faire des plans de level design via claude code et les importer dans houdini via des courbes etc … 
+
+React ?
+
+# Passerelle 2D → 3D pour level design Houdini
+
+## Context
+
+**Problème.** Workflow level design actuel = papier/Photoshop puis placement manuel UE5. Lent, friction, pas itératif. Houdini fait du procedural mais l'input reste manuel (placer points dans viewport 3D).
+
+**Idée.** Un plan 2D **visuellement lisible** sert de source. Claude Code génère/édite le plan, l'utilisateur ajuste visuellement (drag-and-drop si besoin), Houdini interprète via HDA → scatter / instance / sweep → niveau procédural prêt. Plus besoin de placer manuellement dans UE5.
+
+**But filtre.** Outil perso pour Magnum Opus (pas business direct). MVP cette semaine.
+
+**Vrai unlock.** Le plan visuel devient source unique, lisible humain ET éditable par Claude. Tu vois ce que tu fais, et tu peux dire "Claude, ajoute 3 chaises autour de la table" → modification réelle.
+
+---
+
+## Choix du format pivot — pourquoi SVG (pas JSON, pas DWG)
+
+L'utilisateur a soulevé : AutoCAD/DWG, Revit, ArchiCAD, SketchUp. Comparaison réelle :
+
+| Format | Visuel direct | Éditable par Claude | Houdini lit | Verdict |
+| --- | --- | --- | --- | --- |
+| **SVG** | ✅ navigateur | ✅ XML texte trivial | ✅ File SOP / courbes | **Choix retenu** |
+| **DXF** (AutoCAD échange) | ❌ besoin viewer | ⚠️ ASCII mais verbeux | ✅ File SOP natif | Backup si précision métrique requise |
+| **DWG** (AutoCAD natif) | ❌ binaire | ❌ propriétaire | ⚠️ via conversion | Non |
+| **IFC** (BIM ouvert) | ❌ besoin viewer | ⚠️ verbeux | ⚠️ plugin | Overkill |
+| **RVT** (Revit) | ❌ propriétaire | ❌ | ❌ | Non |
+| **SKP** (SketchUp) | ⚠️ app dédiée | ❌ binaire | ⚠️ via export | Non |
+| **JSON brut** | ❌ pas visuel | ✅ trivial | ✅ Python SOP | Rejeté (pas visuel = règle utilisateur) |
+
+**SVG gagne** parce qu'il coche les 3 cases : visuel (ouvre dans n'importe quel navigateur), Claude le manipule comme du HTML, Houdini importe via File SOP / convertit en courbes. Calques nommés (`<g id="walls">`, `<g id="chairs">`) = sémantique pour le HDA.
+
+---
+
+## Stack recommandée
+
+```
+┌──────────────────┐   SVG     ┌──────────────────┐
+│ Claude Code      │ ────────► │ Inkscape         │ (drag-drop ajustements)
+│ génère/édite SVG │ ◄──────── │ ou navigateur    │
+└──────────────────┘           └──────────────────┘
+        │                              │
+        └──────────── SVG ─────────────┘
+                       │
+                       ▼
+              ┌──────────────────┐
+              │ HDA Houdini      │
+              │ File SOP → curves│
+              │ → switch on layer│
+              │ → scatter assets │
+              └──────────────────┘
+```
+
+**Conventions SVG retenues** (le HDA s'appuie dessus) :
+
+- Calque `<g id="walls">` → segments → sweep (mur 3D)
+- Calque `<g id="floor">` → polygone → grid + scatter sol
+- Calque `<g id="chairs">` → cercles ou symboles → copytopoints chaise asset
+- Calque `<g id="spawns">` → cercles colorés → marqueurs gameplay
+- Attribut `transform="rotate(N)"` sur chaque symbole → orientation 3D
+- Échelle : 1 unité SVG = 10 cm Houdini (configurable dans HDA)
+
+---
+
+## Plan d'exécution — 3 sous-tâches MVP
+
+### Sous-tâche 1 — Valider la passerelle SVG → Houdini (CE SOIR, 1h)
+
+Avant tout, prouver que la pipe consomme.
+
+- Créer `test_plan.svg` à la main (ou avec Claude) : 4 murs (lignes), 3 chaises (cercles dans calque `chairs`), 1 spawn.
+- HDA Houdini : File SOP lit SVG → groupe par layer → pour chaque groupe applique opération différente (sweep / copytopoints / scatter).
+- **Validation** : modifier le SVG dans VS Code (déplacer une chaise) → recook Houdini → la chaise a bougé en 3D.
+
+Si ça marche → la moitié du projet est dans la poche.
+
+### Sous-tâche 2 — Boucle Claude Code génère SVG (J+1, 1h)
+
+- Repo git avec `test_plan.svg`.
+- Demander à Claude : "génère un plan d'étage rectangulaire 10x8m avec 4 chaises autour d'une table centrale".
+- Claude écrit SVG conforme aux conventions de la sous-tâche 1.
+- Recook Houdini → niveau apparaît.
+- **Validation** : modification langue naturelle → modification 3D, sans toucher Houdini.
+
+### Sous-tâche 3 — Drag-and-drop ajustements (J+2, 30min)
+
+- Ouvrir le SVG généré dans **Inkscape** (gratuit, SVG natif, drag-drop visuel).
+- Déplacer une chaise visuellement → save → recook Houdini.
+- **Validation** : workflow hybride Claude (gros œuvre) + humain (retouche fine) fonctionne.
+
+Pas besoin de coder un éditeur web custom au MVP. Inkscape fait le job. Si frustration → tldraw en v2.
+
+---
+
+## Fichiers critiques (à créer)
+
+```
+D:\\Create\\Build\\Houdini\\LevelBridge\\
+├── plans\\
+│   ├── test_plan.svg              # Plan source, éditable Claude+Inkscape
+│   └── conventions.md             # Spec calques + symboles
+└── hda\\
+    └── level_bridge.hda           # HDA Houdini consommateur SVG
+```
+
+---
+
+## Vérification end-to-end
+
+1. **Pipe minimale** : créer `test_plan.svg` à la main → ouvrir HDA Houdini → recook → 3 chaises 3D au bon endroit.
+2. **Édition manuelle** : modifier SVG dans VS Code (déplacer chaise) → recook → chaise a bougé.
+3. **Édition Claude** : "Claude, ajoute 4 chaises en cercle" → SVG modifié → recook → résultat 3D.
+4. **Édition Inkscape** : ouvrir SVG, drag chaise visuellement, save → recook → résultat 3D.
+
+Si les 4 étapes passent → outil utilisable pour Magnum Opus.
+
+---
+
+## Stop-conditions
+
+- Si File SOP de Houdini ne lit pas correctement le SVG (problème groupes/layers) → fallback DXF (verbeux mais natif Houdini).
+- Si HDA dépasse 200 nodes → mauvais design, refactorer.
+- Si après sous-tâche 1 le résultat n'est pas immédiatement utile pour Magnum Opus → arrêter (filtre but ultime).
+
+## Évolutions v2 (NE PAS faire au MVP)
+
+- Éditeur web custom (tldraw) si Inkscape devient friction.
+- Library de symboles SVG réutilisables (palette d'assets).
+- Bidirectionnel : modifier dans Houdini → re-export SVG.
+- Support multi-étages (un SVG par floor + Z-stack dans HDA).
+
+Tout ça = piège over-engineering. À envisager seulement si MVP utilisé activement 2 semaines.
