@@ -1,0 +1,219 @@
+#!/usr/bin/env python3
+import csv
+import re
+import subprocess
+import sys
+from concurrent.futures import ProcessPoolExecutor, as_completed
+from pathlib import Path
+
+SOURCE_MOVIE = Path("/Users/zenray/Downloads/Black.Panther.Wakanda.Forever.mkv")
+RENDER_MOVIE = Path("/Users/zenray/Downloads/WakandaForever_subtitles_work/wakanda_black_enpgs.mkv")
+WORK = Path("/Users/zenray/Downloads/WakandaForever_subtitles_work")
+FRAMES = WORK / "frames"
+OUT_SRT = WORK / "wakanda_forever.en.ocr.srt"
+EVENTS_CSV = WORK / "wakanda_forever.en_pgs_events.csv"
+
+# Global English PGS stream index in the source MKV.
+PGS_STREAM_INDEX = 3
+
+# Relative subtitle index for ffmpeg filters in the lightweight black MKV.
+PGS_FILTER_SPEC = "0:s:0"
+
+
+def run(cmd, **kwargs):
+    return subprocess.run(cmd, check=True, text=True, **kwargs)
+
+
+def srt_time(seconds: float) -> str:
+    ms_total = max(0, int(round(seconds * 1000)))
+    h, rem = divmod(ms_total, 3_600_000)
+    m, rem = divmod(rem, 60_000)
+    s, ms = divmod(rem, 1000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
+
+
+def parse_packets():
+    cmd = [
+        "ffprobe",
+        "-hide_banner",
+        "-v",
+        "error",
+        "-show_packets",
+        "-show_entries",
+        "packet=stream_index,pts_time,size",
+        "-of",
+        "csv=p=0",
+        str(SOURCE_MOVIE),
+    ]
+    proc = subprocess.run(cmd, check=True, text=True, capture_output=True)
+    packets = []
+    for row in csv.reader(proc.stdout.splitlines()):
+        if len(row) < 3:
+            continue
+        try:
+            stream_idx = int(row[0])
+            pts = float(row[1])
+            size = int(row[2])
+        except ValueError:
+            continue
+        if stream_idx == PGS_STREAM_INDEX:
+            packets.append((pts, size))
+
+    events = []
+    current = None
+    for pts, size in packets:
+        if size > 100:
+            if current and pts > current["start"] + 0.2:
+                current["end"] = pts - 0.05
+                events.append(current)
+            current = {"start": pts, "end": None, "size": size}
+        elif current:
+            current["end"] = pts
+            if current["end"] > current["start"] + 0.15:
+                events.append(current)
+            current = None
+
+    if current:
+        current["end"] = current["start"] + 2.0
+        events.append(current)
+
+    # Drop duplicate starts sometimes emitted by PGS segment boundaries.
+    deduped = []
+    last_start = -999
+    for ev in events:
+        if ev["start"] - last_start < 0.08:
+            continue
+        deduped.append(ev)
+        last_start = ev["start"]
+    return deduped
+
+
+def render_frame(item):
+    idx, ev = item
+    frame = FRAMES / f"cue_{idx:04d}.png"
+    if frame.exists() and frame.stat().st_size > 1000:
+        return frame
+
+    duration = max(0.2, ev["end"] - ev["start"])
+    sample = ev["start"] + min(max(duration * 0.45, 0.08), 0.7)
+    sample = max(0.0, sample - ev.get("render_shift", 0.0))
+    input_seek = max(0.0, sample - 1.0)
+    output_seek = sample - input_seek
+    cmd = [
+        "ffmpeg",
+        "-hide_banner",
+        "-v",
+        "error",
+        "-ss",
+        f"{input_seek:.3f}",
+        "-i",
+        str(RENDER_MOVIE),
+        "-ss",
+        f"{output_seek:.3f}",
+        "-filter_complex",
+        f"[0:v][{PGS_FILTER_SPEC}]overlay",
+        "-frames:v",
+        "1",
+        "-y",
+        str(frame),
+    ]
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+    return frame
+
+
+def clean_ocr(text: str) -> str:
+    text = text.replace("\r", "\n")
+    text = text.replace("\u2018", "'").replace("\u2019", "'")
+    text = text.replace("\u201c", '"').replace("\u201d", '"')
+    text = text.replace("।", "I")
+    text = text.replace("|", "I")
+    text = re.sub(r"(?m)^[|!]\s+am\b", "I am", text)
+    text = re.sub(r"\b[|!] am\b", "I am", text)
+    text = re.sub(r"\b[|!]['’]m\b", "I'm", text)
+    text = re.sub(r"\b[|!] have\b", "I have", text)
+    text = re.sub(r"\b[|!] will\b", "I will", text)
+    text = re.sub(r"\b[|!] was\b", "I was", text)
+    text = re.sub(r"\b[|!] can\b", "I can", text)
+    text = re.sub(r"\b[|!] know\b", "I know", text)
+    text = re.sub(r"\b[|!] don't\b", "I don't", text)
+    text = re.sub(r"\b[|!] cannot\b", "I cannot", text)
+    text = re.sub(r"\b[|!] need\b", "I need", text)
+    text = re.sub(r"\b[|!] think\b", "I think", text)
+    text = re.sub(r"(?m)^\s*-\s+", "- ", text)
+    lines = []
+    for line in text.splitlines():
+        line = re.sub(r"\s+", " ", line).strip()
+        line = line.strip("_~")
+        if not line:
+            continue
+        if re.fullmatch(r"[.,:;|!\-_\s]+", line):
+            continue
+        lines.append(line)
+    return "\n".join(lines)
+
+
+def ocr_frame(frame: Path) -> str:
+    # Tesseract on this machine fails on some absolute paths with many dots.
+    proc = subprocess.run(
+        ["tesseract", frame.name, "stdout", "-l", "eng", "--psm", "6"],
+        cwd=str(frame.parent),
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    return clean_ocr(proc.stdout)
+
+
+def ocr_one(item):
+    idx, ev = item
+    frame = render_frame(item)
+    text = ocr_frame(frame)
+    return idx, ev, text
+
+
+def write_srt(results):
+    parts = []
+    for idx, ev, text in results:
+        if not text:
+            text = "[OCR_EMPTY]"
+        parts.append(
+            f"{idx}\n{srt_time(ev['start'])} --> {srt_time(ev['end'])}\n{text}"
+        )
+    OUT_SRT.write_text("\n\n".join(parts) + "\n", encoding="utf-8")
+
+
+def main():
+    FRAMES.mkdir(parents=True, exist_ok=True)
+    events = parse_packets()
+    render_shift = events[0]["start"] if events else 0.0
+    for ev in events:
+        ev["render_shift"] = render_shift
+    with EVENTS_CSV.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["idx", "start", "end", "duration", "size"])
+        for i, ev in enumerate(events, 1):
+            writer.writerow([i, f"{ev['start']:.3f}", f"{ev['end']:.3f}", f"{ev['end'] - ev['start']:.3f}", ev["size"]])
+
+    print(f"events: {len(events)}")
+    results = []
+    with ProcessPoolExecutor(max_workers=8) as ex:
+        futures = [ex.submit(ocr_one, (i, ev)) for i, ev in enumerate(events, 1)]
+        for n, fut in enumerate(as_completed(futures), 1):
+            results.append(fut.result())
+            if n % 100 == 0:
+                print(f"ocr: {n}/{len(events)}")
+    results.sort(key=lambda x: x[0])
+    write_srt(results)
+    empty = sum(1 for _, _, text in results if not text or text == "[OCR_EMPTY]")
+    print(f"wrote: {OUT_SRT}")
+    print(f"empty: {empty}")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except subprocess.CalledProcessError as exc:
+        print(f"command failed: {exc}", file=sys.stderr)
+        if getattr(exc, "stderr", None):
+            print(exc.stderr, file=sys.stderr)
+        raise
