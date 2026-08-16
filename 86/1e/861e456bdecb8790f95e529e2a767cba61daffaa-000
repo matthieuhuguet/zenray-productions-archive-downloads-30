@@ -1,0 +1,208 @@
+# 12 Février 2026
+
+[Tu peux vraiment faire du level design a foison avec ce genre d’outils et regler des problemes de graph de logique avec etant don’e que le graph fonctionne c’est vraiment incroyable.](12%20F%C3%A9vrier%202026/Tu%20peux%20vraiment%20faire%20du%20level%20design%20a%20foison%20av%20306d4ee179c380cfa903f6b8de677af2.md)
+
+Bon j’ai acheté l’agent kit de gorka j’espère que ce sera worth !
+
+C’est exceptionnel ! + assigner un material.
+
+To mega structures … 
+
+From image comme sur Blender … le scale est vraiment présent. après c’est pas exactement exact
+
+DONC HOUDINI CA MARCHE 
+
+BLENDER CA MARCHE
+
+UNREAL CA MARCHE
+
+C’est cool on est allé jusqu’au bout ! et l’argent débloque vraiment les choses combien es tu prêt à investir pour vraiment changer les choses dans ta vie quel valeur est tu près à donner !
+
+**donc ensuite tu peux paralléliser les créations pour setup plus ou moins rapidement des choses notamment avec des assets beaucoup plus stylés comme kitbash.**
+
+![Capture d'écran 2026-02-13 021205 (Large).png](12%20F%C3%A9vrier%202026/Capture_dcran_2026-02-13_021205_(Large).png)
+
+![image.png](12%20F%C3%A9vrier%202026/image.png)
+
+![image.png](12%20F%C3%A9vrier%202026/image%201.png)
+
+![image.png](12%20F%C3%A9vrier%202026/image%202.png)
+
+![image.png](12%20F%C3%A9vrier%202026/image%203.png)
+
+ça a l’air vraiment pas mal !!!
+
+Je vais continuer d’améliorer cette version jusqu’à ce que les bugs soit fixé ! 
+Car si ça marche les résultats sont infinis.
+
+La roadmap pour améliorer le plugin !
+
+Est ce que ce plugins couvre 80 % des usecases d'un utilisateur d'unreal avec un agent conversationnel ?
+
+Le plugin NEO AI à 100 balles utilisés par Gorka couvre 
+
+Blueprints          ████████████████████░  95%
+Animation           ████████████████████░  95%
+Control Rig         ████████████████████   100%
+IK Rig/Retarget     ██████████████████░░░  90%
+Behavior Trees      ██████████████████░░░  90%
+State Trees         ████████████████░░░░░  80%
+Enhanced Input      ██████████████████░░░  90%
+Level Sequencer     ████████████████░░░░░  80%
+Chooser Tables      ██████░░░░░░░░░░░░░░░  30%
+PCG                 █████░░░░░░░░░░░░░░░░  25%
+MetaSounds          ████░░░░░░░░░░░░░░░░░  20%
+Niagara VFX         ███░░░░░░░░░░░░░░░░░░  15%
+GAS                 ██░░░░░░░░░░░░░░░░░░░  10%
+─────────────────────────────────────────────
+Materials           ░░░░░░░░░░░░░░░░░░░░░   0%
+UMG/UI              ░░░░░░░░░░░░░░░░░░░░░   0%
+World Building      ░░░░░░░░░░░░░░░░░░░░░   0%
+Data Tables         ░░░░░░░░░░░░░░░░░░░░░   0%
+NavMesh/AI Percept  ░░░░░░░░░░░░░░░░░░░░░   0%
+Physics/Chaos       ░░░░░░░░░░░░░░░░░░░░░   0%
+Networking          ░░░░░░░░░░░░░░░░░░░░░   0%
+Landscape           ░░░░░░░░░░░░░░░░░░░░░   0%
+Packaging           ░░░░░░░░░░░░░░░░░░░░░   0%
+Project Settings    ░░░░░░░░░░░░░░░░░░░░░   0%
+
+| **Domaine** | **% du travail UE5** | **Couverture plugin** | **Score** |
+| --- | --- | --- | --- |
+| **Blueprint logic** (event graph) | 25% | ~70% ✅ | 17% |
+| **Scene/Level** (placer, bouger, configurer acteurs) | 20% | ~5% ❌ | 1% |
+| **Materials** (créer, assigner, graph) | 12% | 0% ❌ | 0% |
+| **Animation** (ABP, montages, state machines) | 10% | 0% ❌ | 0% |
+| **UI / UMG** (widgets, layout) | 7% | 0% ❌ | 0% |
+| **Cinematics** (sequencer, cameras) | 5% | 0% ❌ | 0% |
+| **Composants BP** (ajout, config) | 5% | ~50% ⚠️ | 2.5% |
+| **Timeline** (tracks, keyframes) | 4% | ~10% ❌ | 0.4% |
+| **Gameplay systems** (AI, GAS, DataTables) | 7% | ~5% ❌ | 0.3% |
+| **Asset management** (import, config) | 5% | ~10% ⚠️ | 0.5% |
+|  |  |  | **≈ 22%** |
+
+Avec le fallback **`execute_unreal_python`** on remonte à **~35%** car Python UE5 couvre la scène et les assets.
+
+## **Résultat**
+
+### **Projet créé**
+
+`E:\Create\Build\DCC\MCP\UnrealMCP_ZenRay_4_6_Fix\` - contient le plugin corrigé + source compilable
+
+### **Compilation**
+
+- **UE 5.7.2** - Build.bat + UBT
+- **31/31 actions** compilées sans erreur
+- DLL: `UnrealEditor-UnrealMCP.dll` (576 KB)
+
+### **Déploiement**
+
+Les binaires compilés ont été copiés dans :
+
+`E:\Create\Build\ZenRayProductions\TestUnrealMCP\Plugins\UnrealMCP\Binaries\Win64\`
+
+### **Corrections appliquées (récap)**
+
+| **Fichier** | **Avant** | **Après** |
+| --- | --- | --- |
+| `NodeManager.cpp` | `node_id` = `GetName()` | `node_id` = `NodeGuid.ToString()` + `node_name` |
+| `EventManager.cpp` | `node_id` = GUID (ok) | + `node_name` ajouté |
+| `NodeDeleter.cpp/.h` | pas de `node_name` | + `deleted_node_name` |
+| `EpicUnrealMCPBlueprintCommands.cpp` | pas de GUID, `from_node`/`to_node` | `node_id` (GUID) + `source_node_id`/`target_node_id` |
+
+### **Pour tester**
+
+1. **Fermez Unreal Editor** s'il est ouvert (le DLL est verrouillé sinon)
+2. **Relancez** TestUnrealMCP dans UE 5.7
+3. Le plugin chargera automatiquement le nouveau DLL
+4. Testez avec `read_blueprint_content` ou `analyze_blueprint_graph` - vous verrez les `node_id` (GUID) dans les réponses
+5. Utilisez ces GUIDs dans `connect_nodes` avec `source_node_id`/`target_node_id`
+
+Tester quand c’est ouvert. on test une dernière fois avec la version que Claude a construite et ensuite on avise et on testera de générer les plans avec l’AI pour l’exécuter, j’ai outrageusement besoin d’améliore la présentation et la visibilité actuelle.
+
+Pourquoi tu met ce chemin si tu l'as mis dans marketplace ? E:\Create\Build\ZenRayProductions\TestUnrealMCP\Plugins\UnrealMCP\MCP ?
+
+Intéressant.
+
+![image.png](12%20F%C3%A9vrier%202026/image%204.png)
+
+[Learning Library | SideFX](https://www.sidefx.com/learn/learning-library/tutorials/)
+
+- [ ]  QVEMA
+- [ ]  executer de manière quasi militaire une idée, c’est ça qui fait la différence entre quelqu’un qui a une idée et quelqu’un qui a du succès.
+- [ ]  Enseignement executer de manière quasi militaire une idée. c’est ça qui fait la différence
+- [ ]  Ghost of tsushima c’est clairement exceptionnel notamment en terme animation et texturing.
+- [ ]  Fin de vanitas.
+
+**Vibe coding avec Unreal ! Fin !**
+
+La meilleure méthode actuelle ça reste quand même générer un guide qui permet de diviser toutes les étapes en quelques chose de simple à chaque fois.
+
+Sinon c’est un peu résultat wacky.exe.
+
+*On est tellement enthousiaste qu'on développe des produits de partout, on se disperse, et ça devient un grand fouilli*
+
+![image.png](12%20F%C3%A9vrier%202026/55e3c946-0462-4f95-93b1-2976517faa2a.png)
+
+---
+
+Et ensuite prise de note pour texturing via substance designer c’est ambitieu mwais tu peux le faire ensuite pour le blockout de la scène etc n’oublie pas BlenderMCP ! 🙂
+
+puisque add component ne fonctionne pas tu peux les instancier directement dans la scène puis harvest component blueprint create class … essayons avec SM_Table.
+
+Le plugin fonctionne pour la création de code et la disposition d’asset soit scattering ! Parfait maintenant passons à autre chose comme le scattering. C’est déjà très puissant
+
+Maintenant ce qui serait cool ce serait de pouvoir faire en sorte de gérer des composants internes au blueprints pour setup des scènes automatiquement.
+
+Il faut call le bon tool mcp c’est un peu chiant mais bon … ou sinon tu dis intérprête le bon tool mcp.
+
+![image.png](12%20F%C3%A9vrier%202026/image%205.png)
+
+![image.png](12%20F%C3%A9vrier%202026/image%206.png)
+
+J’ai remis l’ancien plugin.
+
+cursor arrive pas du tout à créer des nodes dans EventGraph avec Gemini peut être que Claude peut réussir avec ClaudeCode … peut être que c’est le modèle le problème et pas cursor …
+
+Lui dire d’utiliser les tools du plugins ?
+NE PAS CREER LES PLUGINS SOIT MEME ! perte de temps infini !
+
+![image.png](12%20F%C3%A9vrier%202026/image%207.png)
+
+Améliorer le plugins à chaque erreurs de manière itératives ?
+
+demain je vais au cowork le matin et je me tape cette vidéo masterclasse de javier perez même si c’est difficile.
+
+Test Unreal Cursor. 
+Puis voilà fin du game …
+
+Ensuite publication création de nouvelles choses analyse de marché 
+
+trouver des clients puis créer le produit / la solution.
+
+Créer le plugin Substance API Python
+
+### Construire les outils qui permettent la scalabilité à l’échelle.
+
+On atteins un peu une limite notamment pour Substance Designer il y a beaucoup de bug … 
+
+toujours bien vérifier les mcp même entre les comptes !!!
+
+Le truc qui a bien marché c’est le scattering … 
+
+Mais le reste c’est vraiment chiant et ça marche pas
+
+Pour l’instant je vais garder mon approche de générer un guide, avoir l’intuition de faire tel ou tel chose.
+
+Pas un abandon mais learn Zbrush / Substanc Designer.
+
+![image.png](12%20F%C3%A9vrier%202026/image%208.png)
+
+- [x]  Test Unreal Cursor. il faut lui dire que le lien existe et qu’il peut accèder au tool. en vrai y’a des trucs qui fonctionne d’autres non …
+- [ ]  Javier Perez (découper et prendre des notes à l’écrit.)
+- [x]  Création de substance designer plugin. ça fonctionne
+
+![image.png](12%20F%C3%A9vrier%202026/image%209.png)
+
+![image.png](12%20F%C3%A9vrier%202026/image%2010.png)
+
+En fait le truc c’est qu’il faut pas forcément partager ça il vaut mieux partager plusieurs résultat.
