@@ -1,0 +1,21 @@
+# :youtube_full-color_icon_-2017--svg: cmd_lines yt dlp download youtube
+
+Created: December 2, 2025 6:46 PM
+
+download yt audio
+
+```jsx
+yt-dlp -x --audio-format mp3 --audio-quality 0 "URL"
+```
+
+download yt audio + video
+
+```jsx
+yt-dlp -f "bv+ba/b" "URL"
+```
+
+change disk : Tape juste la lettre suivie de deux-points
+
+```jsx
+a: A: 
+```
