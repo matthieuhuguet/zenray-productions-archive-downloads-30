@@ -1,0 +1,68 @@
+# Automatisation Animation Control Rig Unreal
+
+---
+
+name: Automatisation Animation Control Rig Unreal
+
+overview: Utilisation de scripts Python via MCP pour extraire la hiérarchie du Control Rig de 'CR_Mannequin_Body' et générer programmatiquement une animation keyframée dans le Level Sequencer actif.
+
+todos:
+
+- id: inspect-hierarchy
+    
+    content: Script Python pour lister la hiérarchie du Control Rig de CR_Mannequin_Body
+    
+    status: completed
+    
+- id: create-animation
+    
+    content: Script Python pour ajouter des keyframes dans le Level Sequencer actif
+    
+    status: completed
+    
+    dependencies:
+    
+    - inspect-hierarchy
+
+---
+
+# Automatisation Animation Control Rig Unreal
+
+Ce plan utilise l'API Python d'Unreal Engine pour interagir précisément avec le Control Rig et le Sequencer.
+
+## Étape 1 : Récupération de la Hiérarchie
+
+Nous utiliserons `mcp_unreal_execute_python` pour identifier l'acteur et lister ses contrôles.
+
+- **Action :** Trouver l'acteur `CR_Mannequin_Body` dans le monde.
+- **Action :** Accéder à son `ControlRigComponent`.
+- **Sortie :** Imprimer la liste complète des "Hierarchy Elements" (les os et contrôleurs) dans le log pour référence.
+
+## Étape 2 : Création de l'Animation dans le Sequencer
+
+Nous écrirons un script Python robuste pour injecter des clés d'animation.
+
+- **Cible :** La séquence active `CR_Mannequin_Body_Take1` (vue dans votre capture).
+- **Logique :**
+    1. Obtenir le `LevelSequence` actuel.
+    2. Trouver le `Binding` correspondant à `CR_Mannequin_Body`.
+    3. Accéder à la piste `ControlRig` (ou la créer si absente).
+    4. **Keyframing :** Pour une liste de contrôles définis (ex: `spine_01`, `head`), définir une valeur à la Frame 0 et une valeur différente à la Frame 30.
+    5. Appliquer les changements (`SequencerTools` ou modification directe des canaux).
+
+## Étape 3 : Sauvegarde
+
+- Sauvegarder l'asset `LevelSequence` pour persister les changements.
+
+### Diagramme de flux
+
+```mermaid
+graph TD
+    A[Start] --> B[Python Script via MCP]
+    B --> C{Actor Existe?}
+    C -->|Oui| D[Get Control Rig Hierarchy]
+    D --> E[Log Controls List]
+    E --> F[Access Level Sequence]
+    F --> G[Add Keyframes Frame 0 & 30]
+    G --> H[Save Sequence]
+```
