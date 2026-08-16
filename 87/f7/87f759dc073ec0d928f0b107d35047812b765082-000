@@ -1,0 +1,239 @@
+# stylus_script_change_font
+
+Created: July 31, 2025 2:45 PM
+
+```css
+/* --- AEONIK Définitions @font-face (Chargées une seule fois) --- */
+
+/* Aeonik Pro (remplace GT Standard pour UI & Texte) */
+/* Chaque graisse est définie individuellement, comme dans la structure originale. */
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: normal; font-weight: 300;
+    /* Les noms locaux sont adaptés pour correspondre à la famille Aeonik. */
+    src: local('Aeonik Pro Light'), local('AeonikPro-Light');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: italic; font-weight: 300;
+    src: local('Aeonik Pro Light Italic'), local('AeonikPro-LightItalic');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: normal; font-weight: 400;
+    src: local('Aeonik Pro Regular'), local('AeonikPro-Regular');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: italic; font-weight: 400;
+    src: local('Aeonik Pro Regular Italic'), local('AeonikPro-RegularItalic');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: normal; font-weight: 500;
+    src: local('Aeonik Pro Medium'), local('AeonikPro-Medium');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: italic; font-weight: 500;
+    src: local('Aeonik Pro Medium Italic'), local('AeonikPro-MediumItalic');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: normal; font-weight: 700;
+    src: local('Aeonik Pro Bold'), local('AeonikPro-Bold');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: italic; font-weight: 700;
+    src: local('Aeonik Pro Bold Italic'), local('AeonikPro-BoldItalic');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: normal; font-weight: 900;
+    src: local('Aeonik Pro Black'), local('AeonikPro-Black');
+}
+@font-face {
+    font-family: 'Aeonik Pro'; font-style: italic; font-weight: 900;
+    src: local('Aeonik Pro Black Italic'), local('AeonikPro-BlackItalic');
+}
+
+/* GT Standard Mono (Code) - INCHANGÉ, COMME DEMANDÉ */
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: normal; font-weight: 400;
+    src: local('GT Standard Mono'), local('GT-Standard-Mono');
+}
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: italic; font-weight: 400;
+    src: local('GT Standard Mono Oblique'), local('GT-Standard-Mono-Oblique');
+}
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: normal; font-weight: 700;
+    src: local('GT Standard Mono Bold'), local('GT-Standard-Mono-Bold');
+}
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: italic; font-weight: 700;
+    src: local('GT Standard Mono Bold Oblique'), local('GT-Standard-Mono-Bold-Oblique');
+}
+
+/* --- Variables & Optimisations globales --- */
+:root {
+    /* La variable --font-main est mise à jour pour utiliser la nouvelle police. */
+    --font-main: "Aeonik Pro", "Google Sans", "Helvetica Neue", "Segoe UI", "YouTube Noto", "Roboto", sans-serif;
+    /* La variable --font-mono reste INCHANGÉE. */
+    --font-mono: "GT Standard Mono", "Fira Code", "Google Sans Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* --- Règle globale de base (INCHANGÉE) --- */
+body, body * {
+    font-family: var(--font-main) !important;
+}
+
+/* --- Exceptions critiques (Code & Icônes) - (INCHANGÉES) --- */
+pre, code, pre *, code *,
+.code-block, .code-block *, .code-container, .code-container *,
+.monaco-editor, .monaco-editor *, span[class*='mtk'],
+.hljs, .hljs *, .prose pre, .notion-code-block *,
+.mat-mdc-unelevated-button.gds-pillbox-button .mdc-button__label,
+[class*="bg-black"] code {
+    font-family: var(--font-mono) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-variant-ligatures: none !important;
+}
+
+pre b, code b, pre strong, code strong, .hljs-strong, .cm-strong {
+    font-family: var(--font-mono) !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+}
+pre i, code i, pre em, code em, .hljs-emphasis, .cm-em {
+    font-family: var(--font-mono) !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+.google-symbols, [class*="google-symbols"],
+.material-icons, mat-icon, yt-icon, .notion-icon,
+[data-radix-collection-item] svg, ytd-topbar-menu-button-renderer svg,
+.yt-spec-icon-shape {
+    font-family: 'Google Symbols', 'Material Icons', 'YouTube Noto', 'Roboto', sans-serif !important;
+    font-feature-settings: 'liga' !important;
+    font-synthesis: none !important;
+    text-rendering: auto !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+}
+
+```
+
+```
+/* GT STANDARD L--- Définitions @font-face (Chargées une seule fois) --- */
+/* GT Standard (UI & Texte) */
+@font-face {
+font-family: 'GT Standard'; font-style: normal; font-weight: 300;
+src: local('GT Standard L Light'), local('GT-Standard-L-Light');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: italic; font-weight: 300;
+src: local('GT Standard L Light Oblique'), local('GT-Standard-L-Light-Oblique');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: normal; font-weight: 400;
+src: local('GT Standard L Regular'), local('GT-Standard-L-Regular');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: italic; font-weight: 400;
+src: local('GT Standard L Regular Oblique'), local('GT-Standard-L-Regular-Oblique');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: normal; font-weight: 500;
+src: local('GT Standard L Medium'), local('GT-Standard-L-Medium');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: italic; font-weight: 500;
+src: local('GT Standard L Medium Oblique'), local('GT-Standard-L-Medium-Oblique');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: normal; font-weight: 700;
+src: local('GT Standard L Bold'), local('GT-Standard-L-Bold');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: italic; font-weight: 700;
+src: local('GT Standard L Bold Oblique'), local('GT-Standard-L-Bold-Oblique');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: normal; font-weight: 900;
+src: local('GT Standard L Black'), local('GT-Standard-L-Black');
+}
+@font-face {
+font-family: 'GT Standard'; font-style: italic; font-weight: 900;
+src: local('GT Standard L Black Oblique'), local('GT-Standard-L-Black-Oblique');
+}
+/* GT Standard Mono (Code) */
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: normal; font-weight: 400;
+    src: local('GT Standard Mono'), local('GT-Standard-Mono');
+}
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: italic; font-weight: 400;
+    src: local('GT Standard Mono Oblique'), local('GT-Standard-Mono-Oblique');
+}
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: normal; font-weight: 700;
+    src: local('GT Standard Mono Bold'), local('GT-Standard-Mono-Bold');
+}
+@font-face {
+    font-family: 'GT Standard Mono'; font-style: italic; font-weight: 700;
+    src: local('GT Standard Mono Bold Oblique'), local('GT-Standard-Mono-Bold-Oblique');
+}
+
+/* --- Variables & Optimisations globales --- */
+:root {
+    --font-main: "GT Standard", "Google Sans", "Helvetica Neue", "Segoe UI", "YouTube Noto", "Roboto", sans-serif;
+    --font-mono: "GT Standard Mono", "Fira Code", "Google Sans Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* --- Règle globale de base --- */
+body, body * {
+    font-family: var(--font-main) !important;
+}
+
+/* --- Exceptions critiques (Code & Icônes) --- */
+pre, code, pre *, code *,
+.code-block, .code-block *, .code-container, .code-container *,
+.monaco-editor, .monaco-editor *, span[class*='mtk'],
+.hljs, .hljs *, .prose pre, .notion-code-block *,
+.mat-mdc-unelevated-button.gds-pillbox-button .mdc-button__label,
+[class*="bg-black"] code {
+    font-family: var(--font-mono) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    font-variant-ligatures: none !important;
+}
+
+pre b, code b, pre strong, code strong, .hljs-strong, .cm-strong {
+    font-family: var(--font-mono) !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+}
+pre i, code i, pre em, code em, .hljs-emphasis, .cm-em {
+    font-family: var(--font-mono) !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+.google-symbols, [class*="google-symbols"],
+.material-icons, mat-icon, yt-icon, .notion-icon,
+[data-radix-collection-item] svg, ytd-topbar-menu-button-renderer svg,
+.yt-spec-icon-shape {
+    font-family: 'Google Symbols', 'Material Icons', 'YouTube Noto', 'Roboto', sans-serif !important;
+    font-feature-settings: 'liga' !important;
+    font-synthesis: none !important;
+    text-rendering: auto !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+}
+
+```
