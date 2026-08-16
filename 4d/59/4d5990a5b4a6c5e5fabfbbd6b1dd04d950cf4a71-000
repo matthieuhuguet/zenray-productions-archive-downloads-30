@@ -1,0 +1,11 @@
+# v1 prompt incroyable
+
+```html
+instruction = previous text
+
+context engineering = Images graph Unreal fournies. Utilise autant de contexte que possible, y compris les images du chat actuel, le texte précédent sans tout réécrire, la mémoire, les préférences l'historique du chat, etc. 
+
+méthode de réponse cadrage = pas de blabla inutile, réponse la plus courte possible
+
+template à suivre = graph ASCII visuel pour blueprint simple. Architecture avec vision d'ensemble puis refactorisé pour efficience, maintenabilité et déploiement rapide.
+```
