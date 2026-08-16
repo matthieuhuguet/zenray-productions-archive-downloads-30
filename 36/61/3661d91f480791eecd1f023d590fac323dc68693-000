@@ -1,0 +1,102 @@
+Chrome Crash Debug Report
+============================
+
+Generated At: 2026-06-02T16:28:53
+Source File: Pasted text(7).txt
+
+[Summary]
+process: Google Chrome [44881]
+app_name: Google Chrome
+bundle_id: com.google.Chrome
+app_version: 148.0.7778.216
+build_version: 7778.216
+platform: macOS
+architecture: ARM-64 (Native)
+hardware_model: Mac17,6
+os_version: macOS 26.5 (25F71)
+capture_time: 2026-06-02 18:26:53.7233 +0200
+launch_time: 2026-06-02 18:06:20.5013 +0200
+incident_id: E1D5579E-39C8-4007-B717-80BB2F74918E
+crash_reporter_key: 93771D29-75B6-4534-55EF-4E6A8DE0A812
+
+[Crash]
+triggered_by_thread: 0  CrBrowserMain, Dispatch Queue: com.apple.main-thread
+faulting_thread_index: 0
+exception_type: EXC_BREAKPOINT (SIGTRAP)
+exception_codes: 0x0000000000000001, 0x000000012ae4bf6c
+signal: SIGTRAP
+termination_reason: Namespace SIGNAL, Code 5, Trace/BPT trap: 5
+termination_namespace: SIGNAL
+termination_code: 5
+program_counter: 5014601580
+esr_description: (Breakpoint) brk 0
+
+[Environment Flags]
+system_integrity_protection: disabled
+developer_mode: 1
+translated_rosetta: False
+code_signing_id: com.google.Chrome
+code_signing_team_id: EQHXZ8M8AV
+third_party_app: True
+
+[High Signal Notes]
+- Crash is on the main Chrome browser thread.
+- Exception is EXC_BREAKPOINT / SIGTRAP, which usually means the process deliberately hit a trap/assertion rather than a classic segmentation fault.
+- System Integrity Protection is reported as disabled, which is unusual and worth noting during debug.
+- Crash happened while Chrome was in the background.
+- External modification counters are zero in the pasted report, so the report does not show obvious task/thread injection by another process.
+
+[Debug Checklist]
+- Update Chrome or reinstall Chrome cleanly.
+- Launch Chrome with extensions disabled or a fresh profile.
+- Test with System Integrity Protection enabled if possible.
+- Check whether the crash repeats on the same website, extension, file, or startup session.
+- Attach this JSON plus the original .ips/.crash report when reporting the issue.
+- For symbolication, use the exact Chrome build version and matching symbols if available.
+
+[Threads]
+count: 44
+- #0 | CrBrowserMain | triggered=True
+- #1 | Thread 1 | triggered=False
+- #2 | com.apple.NSEventThread | triggered=False
+- #3 | HangWatcher | triggered=False
+- #4 | PerfettoTrace | triggered=False
+- #5 | ThreadPoolServiceThread | triggered=False
+- #6 | ThreadPoolForegroundWorker | triggered=False
+- #7 | ThreadPoolBackgroundWorker | triggered=False
+- #8 | ThreadPoolBackgroundWorker | triggered=False
+- #9 | ThreadPoolForegroundWorker | triggered=False
+- #10 | Chrome_IOThread | triggered=False
+- #11 | MemoryInfra | triggered=False
+- #12 | NetworkConfigWatcher | triggered=False
+- #13 | CrShutdownDetector | triggered=False
+- #14 | NetworkConfigWatcher | triggered=False
+- #15 | ThreadPoolForegroundWorker | triggered=False
+- #16 | ThreadPoolForegroundWorker | triggered=False
+- #17 | ThreadPoolForegroundWorker | triggered=False
+- #18 | ThreadPoolForegroundWorker | triggered=False
+- #19 | ThreadPoolForegroundWorker | triggered=False
+- #20 | ThreadPoolForegroundWorker | triggered=False
+- #21 | NetworkNotificationThreadMac | triggered=False
+- #22 | ThreadPoolSingleThreadForegroundBlocking0 | triggered=False
+- #23 | CompositorTileWorker1 | triggered=False
+- #24 | ThreadPoolSingleThreadSharedBackgroundBlocking1 | triggered=False
+- #25 | NetworkConfigWatcher | triggered=False
+- #26 | ThreadPoolSingleThreadForegroundBlocking2 | triggered=False
+- #27 | ThreadPoolSingleThreadSharedForeground3 | triggered=False
+- #28 | ThreadPoolForegroundWorker | triggered=False
+- #29 | ThreadPoolForegroundWorker | triggered=False
+- #30 | ThreadPoolForegroundWorker | triggered=False
+- #31 | NetworkConfigWatcher | triggered=False
+- #32 | ThreadPoolForegroundWorker | triggered=False
+- #33 | ThreadPoolForegroundWorker | triggered=False
+- #34 | ThreadPoolForegroundWorker | triggered=False
+- #35 | ThreadPoolForegroundWorker | triggered=False
+- #36 | ThreadPoolForegroundWorker | triggered=False
+- #37 | CacheThread_BlockFile | triggered=False
+- #38 | org.libusb.device-hotplug | triggered=False
+- #39 | UsbEventHandler | triggered=False
+- #40 | Thread 40 | triggered=False
+- #41 | Thread 41 | triggered=False
+- #42 | Thread 42 | triggered=False
+- #43 | Thread 43 | triggered=False
