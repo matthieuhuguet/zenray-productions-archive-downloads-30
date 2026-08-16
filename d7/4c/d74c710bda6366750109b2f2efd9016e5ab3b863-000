@@ -1,0 +1,96 @@
+# 24 Avril 2026
+
+Tongari no boushi
+
+Yomi No tsugai
+
+Demain MAC ET houdini !!! acheter sa liberté vers le japon et profiter du voyage
+
+développer des choses et surtout tu es libre tue le potentiel et agis.
+
+Comme le terminal c’est quoi les autres domaines ou les choses sont en réalité facile mais j’ai peur de le faire ? animation unreal engine ?
+
+Plus aucune excuse plus aucune limite. Si le cerveau est le facteur limitant le kif. Le vaisseau. ça vient du ciel. Alignement des chakras.
+
+intolérance vis à vis des gens qui n’ont plus aucune excuse ? vitesse à la compréhension ?
+
+tendance snobique … travailler …
+
+Rivers flow in you.
+
+MemPalace mais sinon les mcp et au pire tu utilises vraiment ce qui est utile … Oui mais la je peux lui demander directement puisque 
+
+- [ ]  renvoyer les lunettes.
+- [ ]  *test vampire survivor rogue like deck builder.*
+- [x]  Reprenons après ce soir.
+    
+    ![image.png](24%20Avril%202026/image.png)
+    
+- [ ]  Faire du japonais.
+- [ ]  reco cinéma : quelques jours à nagi
+- [ ]  ship and the box kore eda
+- [ ]  soudain ryusuke hamaguchi
+- [ ]  love and trial
+- [ ]  la fille du konbini
+- [ ]  mario galaxy les films ? 3D analyse.
+
+- [ ]  Identité à soi incapable de se fondre dans un groupe ?
+- [ ]  Barre haute à créer quelque chose.
+- [ ]  Bulle et en dehors de la bulle qu’est qui est chinois
+- [ ]  leadership ?
+- [ ]  Les élites vont de plus en plus s’isoler ? Parle à claude vs parler à quelqu’un : snobisme.
+- [ ]  web ui qbittorrent 486920
+
+Juste check MemPalace une fois qu’il a fini et tout push sur github. Les choses n’ont pas besoin d’être parfaite pour être publié. Imaginant de nouvelle manière de créer par exemple motion et écriture. en bref condenser l’écriture.
+
+Clarté mental : besoin de kif : Il faut de la clarté sur ce que tu fais.
+
+Se nourrir spirituellement et intellectuellement comme jamais. calme dieu
+
+Kiffer comme jamais car niveau d’intensity et de stress : angoisse burnout
+
+L’identité l’avoir au minimum.
+
+Les gens qui sont réellement créatif des gens qui sont capables de sortir des idées toutes les semaines !
+
+L’envie le désir de faire les choses mieux. Capacité d’écriture. Volonté de produire, de faire.
+
+Product Manager
+
+Coder
+
+Designer 
+
+Tous les métiers pensent qu’ils peuvent remplacer tout les autres métiers.
+
+https://open.spotify.com/intl-fr/track/2ja1YGDrBGHiGaNkyFr3YQ?si=3e13349030ca4f98
+
+[https://open.spotify.com/intl-fr/track/2ja1YGDrBGHiGaNkyFr3YQ?si=3e13349030ca4f98](https://open.spotify.com/intl-fr/track/2ja1YGDrBGHiGaNkyFr3YQ?si=3e13349030ca4f98)
+
+Musique super pour build un pokémon like ou jeu de café ambiance de x y ou za. ou juste ambiance tokyoite.
+
+client sincère 
+
+ingénieur inapte ?
+
+le goût ? par le volume ?
+
+cash court terme. > cash long terme notamment à l’ère de l’AI et la vague.
+
+Je peux aller au cowork à 16h et ensuite aller à la salle de sport à 18h mais ça dépendra de mon humeur.
+
+Ok parfait : Protocole de transfer via
+
+Jackett
+└── Sert de "traducteur" entre cross-seed et C411
+Il parle le langage Torznab (une API standardisée)
+Sans lui, cross-seed ne saurait pas comment chercher sur C411
+
+cross-seed
+└── Le robot principal
+Il lit tes fichiers, cherche via Jackett sur C411
+Si match → il crée un hardlink + injecte le torrent dans qBittorrent : wtf
+
+qBittorrent
+└── Ton client torrent
+Il reçoit les torrents injectés et commence à seeder
